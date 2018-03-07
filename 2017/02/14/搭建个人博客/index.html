@@ -82,17 +82,17 @@
 <meta name="description" content="利用Hexo和Github搭建个人博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="搭建个人博客">
-<meta property="og:url" content="http://yoursite.com/2017/02/14/装逼必备/搭建个人博客/index.html">
+<meta property="og:url" content="http://yoursite.com/2017/02/14/搭建个人博客/index.html">
 <meta property="og:site_name" content="LinWang&#39;s Blog">
 <meta property="og:description" content="利用Hexo和Github搭建个人博客">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/huanglinwang/ImageData/master/1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/huanglinwang/ImageData/master/2.png">
-<meta property="og:updated_time" content="2018-03-07T05:18:48.988Z">
+<meta property="og:image" content="http://owzkryl0i.bkt.clouddn.com/14898928457620.png">
+<meta property="og:image" content="http://owzkryl0i.bkt.clouddn.com/14898928720793.png">
+<meta property="og:updated_time" content="2018-03-07T06:40:21.745Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="搭建个人博客">
 <meta name="twitter:description" content="利用Hexo和Github搭建个人博客">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/huanglinwang/ImageData/master/1.png">
+<meta name="twitter:image" content="http://owzkryl0i.bkt.clouddn.com/14898928457620.png">
 
 
 
@@ -122,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/14/装逼必备/搭建个人博客/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/14/搭建个人博客/"/>
 
 
 
@@ -245,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/14/装逼必备/搭建个人博客/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/14/搭建个人博客/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lin Wang">
@@ -297,8 +297,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/装逼必备/" itemprop="url" rel="index">
-                    <span itemprop="name">装逼必备</span>
+                  <a href="/categories/装逼小技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">装逼小技巧</span>
                   </a>
                 </span>
 
@@ -335,32 +335,49 @@
 
       
         <h1 id="利用Hexo和Github搭建个人博客"><a href="#利用Hexo和Github搭建个人博客" class="headerlink" title="利用Hexo和Github搭建个人博客"></a>利用Hexo和Github搭建个人博客</h1><a id="more"></a>
+<p>[TOC]</p>
 <p>参考以下文章</p>
 <blockquote>
-<p><strong>5分钟 搭建免费个人博客</strong> <a href="http://www.jianshu.com/p/4eaddcbe4d12" target="_blank" rel="noopener">http://www.jianshu.com/p/4eaddcbe4d12</a><br><strong>Next</strong> <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">https://github.com/iissnan/hexo-theme-next</a><br><strong>nvm 重启终端失效的解决方法</strong> <a href="http://www.imooc.com/article/12985" target="_blank" rel="noopener">http://www.imooc.com/article/12985</a><br><strong>主题</strong> <a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></p>
+<p><strong>5分钟 搭建免费个人博客</strong> <a href="http://www.jianshu.com/p/4eaddcbe4d12" target="_blank" rel="noopener">http://www.jianshu.com/p/4eaddcbe4d12</a><br><strong>Next主题</strong> <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">https://github.com/iissnan/hexo-theme-next</a><br><strong>nvm 重启终端失效的解决方法</strong> <a href="http://www.imooc.com/article/12985" target="_blank" rel="noopener">http://www.imooc.com/article/12985</a><br><strong>主题</strong> <a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></p>
 </blockquote>
-<h2 id="初步了解"><a href="#初步了解" class="headerlink" title="初步了解"></a>初步了解</h2><p>本文主要是针对OS X 系统安装的<br>废话不说先上一个效果图:使用的是Next主题<br><img src="https://raw.githubusercontent.com/huanglinwang/ImageData/master/1.png" alt="GitHub set up-w800"></p>
-<h2 id="基本条件"><a href="#基本条件" class="headerlink" title="基本条件"></a>基本条件</h2><p>要拥有Github账号,会使用Github给自己创建一个仓库<br>创建一个仓库,并且保证创建的时候Respository name 中username.github.io 的username 一定与前面的Owner 一致</p>
-<h2 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h2><p><strong>安装Git</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">安装HomeBrew</span><br><span class="line"> $ /usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br><span class="line"></span><br><span class="line"> $ brew install git   // 安装Git</span><br></pre></td></tr></table></figure></p>
-<p><strong>安装nvm</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install nvm</span><br></pre></td></tr></table></figure></p>
-<p>你可能会看到类似这样的提示,如果不处理重启终端nvm就会失效<br><img src="https://raw.githubusercontent.com/huanglinwang/ImageData/master/2.png" alt="GitHub set up-w800"><br>解决办法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">根据提示</span><br><span class="line">1. 创建 .nvm 文件,在终端中输入mkdir ~/.nvm</span><br><span class="line">2. 编辑你的 bash 配置文件 $HOME/.bashrc和$HOME/.zshrc</span><br><span class="line">nano ~/.bashrc[nano 用来编辑这个文件]</span><br><span class="line">nano ~/.zshrc</span><br><span class="line">3. 将上图中的提示内容分别复制粘贴到这两个文件中,并保存退出</span><br><span class="line">4. 最后让你的 shell 配置及时生效,分别是source ~/.bashrc与source ~/.zshrc</span><br></pre></td></tr></table></figure></p>
-<p><strong>安装Node.js</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ nvm install 4</span><br><span class="line">$ nvm ls 可以查看是否安装成功</span><br></pre></td></tr></table></figure></p>
-<p><strong>安装Hexo</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo npm install hexo-cli -g</span><br></pre></td></tr></table></figure></p>
-<h2 id="编写发布"><a href="#编写发布" class="headerlink" title="编写发布"></a>编写发布</h2><p><strong>创建博客</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">username替换成你自己想要的昵称</span><br><span class="line">$ hexo init username.github.io</span><br></pre></td></tr></table></figure></p>
-<p><strong>更改配置</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">主题安装</span><br><span class="line">切换到刚才创建的目录中</span><br><span class="line">$ cd username.github.io</span><br><span class="line">$ git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure></p>
-<p><strong>启用主题</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. 打开[站点配置文件]修改下面的内容</span><br><span class="line">title: 你博客的名字</span><br><span class="line">author: 你的名字</span><br><span class="line">language: zh-Hans 	//语言 中文</span><br><span class="line">theme: next   		//刚刚安装的主题名称</span><br><span class="line">deploy:</span><br><span class="line">  type: git   		//使用Git 发布</span><br><span class="line">  repo: https://github.com/username/username.github.io.git    // 刚创建的Github仓库</span><br></pre></td></tr></table></figure></p>
-<p>在 Hexo 中有两份主要的配置文件,其名称都是 <strong>_config.yml</strong>。<br>一份位于站点根目录下,主要包含 Hexo 本身的配置<br>一份位于主题目录下,这份配置由主题作者提供,主要用于配置主题相关的选项.<br>为了描述方便,在以下说明中,将前者称为 <strong>站点配置文件</strong> 后者称为 <strong>主题配置文件</strong></p>
-<p><strong>书写文章</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在你的这个文件目录下</span><br><span class="line">username.github.io/source/_posts</span><br><span class="line">创建一个.md文件.使用markdown语言尽情的书写✍️吧</span><br></pre></td></tr></table></figure></p>
-<p><strong>测试</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br><span class="line">测试服务启动,你可以在浏览器中输入https://localhost:4000 访问你的博客了.</span><br></pre></td></tr></table></figure></p>
-<p><strong>安装自动部署发布工具</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
-<p><strong>发布</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure></p>
+<h2 id="初步了解"><a href="#初步了解" class="headerlink" title="初步了解"></a>初步了解</h2><p>本文主要是针对OS X 系统安装的<br>废话不说先上一个效果图:使用的是Next主题</p>
+<p><img src="http://owzkryl0i.bkt.clouddn.com/14898928457620.png" alt=""></p>
+<h2 id="基本条件"><a href="#基本条件" class="headerlink" title="基本条件"></a>基本条件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">要拥有Github账号,会使用Github给自己创建一个仓库</span><br><span class="line">创建一个仓库,并且保证创建的时候Respository name 中username.github.io 的username 一定与前面的Owner 一致</span><br></pre></td></tr></table></figure>
+<h2 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h2><p><strong>安装Git</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">安装HomeBrew</span><br><span class="line"> $ /usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br><span class="line"></span><br><span class="line"> $ brew install git   // 安装Git</span><br></pre></td></tr></table></figure>
+<p><strong>安装nvm</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install nvm</span><br></pre></td></tr></table></figure>
+<p>你可能会看到类似这样的提示,如果不处理重启终端nvm就会失效</p>
+<p><img src="http://owzkryl0i.bkt.clouddn.com/14898928720793.png" alt=""></p>
+<p>解决办法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">根据提示</span><br><span class="line">1. 创建 .nvm 文件,在终端中输入mkdir ~/.nvm</span><br><span class="line">2. 编辑你的 bash 配置文件 $HOME/.bashrc和$HOME/.zshrc</span><br><span class="line">nano ~/.bashrc[nano 用来编辑这个文件]</span><br><span class="line">nano ~/.zshrc</span><br><span class="line">3. 将上图中的提示内容分别复制粘贴到这两个文件中,并保存退出</span><br><span class="line">4. 最后让你的 shell 配置及时生效,分别是source ~/.bashrc与source ~/.zshrc</span><br></pre></td></tr></table></figure>
+<p><strong>安装Node.js</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ nvm install 4</span><br><span class="line">$ nvm ls 可以查看是否安装成功</span><br></pre></td></tr></table></figure>
+<p><strong>安装Hexo</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<h2 id="编写发布"><a href="#编写发布" class="headerlink" title="编写发布"></a>编写发布</h2><p><strong>创建博客</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">username替换成你自己想要的昵称</span><br><span class="line">$ hexo init username.github.io</span><br></pre></td></tr></table></figure>
+<p><strong>更改配置</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">主题安装</span><br><span class="line">切换到刚才创建的目录中</span><br><span class="line">$ cd username.github.io</span><br><span class="line">$ git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+<p><strong>启用主题</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1. 打开[站点配置文件]修改下面的内容</span><br><span class="line">title: 你博客的名字</span><br><span class="line">author: 你的名字</span><br><span class="line">language: zh-Hans 	//语言 中文</span><br><span class="line">theme: next   		//刚刚安装的主题名称</span><br><span class="line">deploy:</span><br><span class="line">  type: git   		//使用Git 发布</span><br><span class="line">  repo: https://github.com/username/username.github.io.git    // 刚创建的Github仓库</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">在 Hexo 中有两份主要的配置文件,其名称都是 **_config.yml**。 </span><br><span class="line">一份位于站点根目录下,主要包含 Hexo 本身的配置</span><br><span class="line">一份位于主题目录下,这份配置由主题作者提供,主要用于配置主题相关的选项.</span><br><span class="line">为了描述方便,在以下说明中,将前者称为 **站点配置文件** 后者称为 **主题配置文件**</span><br></pre></td></tr></table></figure>
+<p><strong>书写文章</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在你的这个文件目录下</span><br><span class="line">username.github.io/source/_posts</span><br><span class="line">创建一个.md文件.使用markdown语言尽情的书写✍️吧</span><br></pre></td></tr></table></figure>
+<p><strong>测试</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br><span class="line">测试服务启动,你可以在浏览器中输入https://localhost:4000 访问你的博客了.</span><br></pre></td></tr></table></figure>
+<p><strong>安装自动部署发布工具</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p><strong>发布</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
 <p>如果这是你的第一次,终端会让你输入Github 的邮箱和密码,正确输入后,就会把你的博客上传至Github 了.</p>
 <p><strong>验收</strong><br>在浏览器中输入username.github.io 即可访问</p>
 <h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p>Next主题使用文档,你需要认真的阅读一下.你需要的东西在这里都可以找到.<br><a href="http://theme-next.iissnan.com/" target="_blank" rel="noopener">Next主题使用文档</a><br><a href="https://github.com/monniya/hexo-theme-new-vno" target="_blank" rel="noopener">喵神的主题</a></p>
 <h2 id="一些细节问题"><a href="#一些细节问题" class="headerlink" title="一些细节问题"></a>一些细节问题</h2><p>你写Markdown文章需要设置title、date、tags、categories、显示更多.你才可以在你发布的文章中看到你设置的内容.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">title: 文章名称</span><br><span class="line">date: 2017/02/13 20:21:26 时间格式要注意用/</span><br><span class="line">tags:</span><br><span class="line">	- 标签</span><br><span class="line">categories:</span><br><span class="line">	- 分类	</span><br><span class="line">&lt;!-- more --&gt; // 上面的内容会显示在博客的文章,到这句话就会显示[显示更多]</span><br></pre></td></tr></table></figure>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">代码如果不高亮,要在后面代码块区分符[```],后面加对应的语言类型即可例如```objc、```java</span><br><span class="line"><span class="built_in">UIButton</span> *button = [[<span class="built_in">UIButton</span> alloc] init];</span><br></pre></td></tr></table></figure>
-<h2 id="Markdown-插入图片"><a href="#Markdown-插入图片" class="headerlink" title="Markdown 插入图片"></a>Markdown 插入图片</h2><p>利用Github存储图片,在markdown引用图片地址<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 将markdown需要用的图片放到git仓库中，发布到github上</span><br><span class="line">2. 访问github仓库,找到你需要的图片</span><br><span class="line">3. 点击Download,然后Copy地址栏的地址url</span><br><span class="line">4. 在markdown中引用图片![GitHub set up](url)</span><br></pre></td></tr></table></figure></p>
+<h2 id="Markdown-插入图片"><a href="#Markdown-插入图片" class="headerlink" title="Markdown 插入图片"></a>Markdown 插入图片</h2><p>利用Github存储图片,在markdown引用图片地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1. 将markdown需要用的图片放到git仓库中，发布到github上</span><br><span class="line">2. 访问github仓库,找到你需要的图片</span><br><span class="line">3. 点击Download,然后Copy地址栏的地址url</span><br><span class="line">4. 在markdown中引用图片![GitHub set up](url)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -381,22 +398,6 @@
       
       
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/05/装逼必备/利用 MAC 搭建 Apache 服务器/" rel="prev" title="利用 MAC 搭建 Apache 服务器">
-                利用 MAC 搭建 Apache 服务器 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
 
       
@@ -474,7 +475,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
