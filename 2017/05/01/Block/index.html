@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Block 的书写格式一个复杂的 Block有返回值,有参数,变量名为 MyBlock 1234NSInteger (^MyBlock) (NSInteger x,NSString *y) = ^ NSInteger (NSInteger x, NSString *y)&amp;#123;    NSInteger z = x + [y integerValue];    return z;&amp;#125;;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Block">
+<meta property="og:url" content="http://yoursite.com/2017/05/01/Block/index.html">
+<meta property="og:site_name" content="LinWang&#39;s Blog">
+<meta property="og:description" content="Block 的书写格式一个复杂的 Block有返回值,有参数,变量名为 MyBlock 1234NSInteger (^MyBlock) (NSInteger x,NSString *y) = ^ NSInteger (NSInteger x, NSString *y)&amp;#123;    NSInteger z = x + [y integerValue];    return z;&amp;#125;;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-07T09:17:39.186Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Block">
+<meta name="twitter:description" content="Block 的书写格式一个复杂的 Block有返回值,有参数,变量名为 MyBlock 1234NSInteger (^MyBlock) (NSInteger x,NSString *y) = ^ NSInteger (NSInteger x, NSString *y)&amp;#123;    NSInteger z = x + [y integerValue];    return z;&amp;#125;;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/01/Block/"/>
+
+
+
+
+
+  <title>Block | LinWang's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LinWang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/01/Block/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lin Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/icon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LinWang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Block</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-01T17:34:20+08:00">
+                2017-05-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Block/" itemprop="url" rel="index">
+                    <span itemprop="name">Block</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Block-的书写格式"><a href="#Block-的书写格式" class="headerlink" title="Block 的书写格式"></a>Block 的书写格式</h2><h3 id="一个复杂的-Block"><a href="#一个复杂的-Block" class="headerlink" title="一个复杂的 Block"></a>一个复杂的 Block</h3><p>有返回值,有参数,变量名为 MyBlock</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSInteger</span> (^MyBlock) (<span class="built_in">NSInteger</span> x,<span class="built_in">NSString</span> *y) = ^ <span class="built_in">NSInteger</span> (<span class="built_in">NSInteger</span> x, <span class="built_in">NSString</span> *y)&#123;</span><br><span class="line">    <span class="built_in">NSInteger</span> z = x + [y integerValue];</span><br><span class="line">    <span class="keyword">return</span> z;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="使用-Typedef-定义的-Block"><a href="#使用-Typedef-定义的-Block" class="headerlink" title="使用 Typedef 定义的 Block"></a>使用 Typedef 定义的 Block</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="built_in">NSInteger</span>(^block)(<span class="built_in">NSInteger</span> x ,<span class="built_in">NSString</span> *y);</span><br><span class="line"></span><br><span class="line">block b = ^ <span class="built_in">NSInteger</span> (<span class="built_in">NSInteger</span> x , <span class="built_in">NSString</span> *y)&#123;</span><br><span class="line">        <span class="keyword">return</span> x + [y integerValue];</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Block-类型及内存"><a href="#Block-类型及内存" class="headerlink" title="Block 类型及内存"></a>Block 类型及内存</h2><h3 id="ARC环境"><a href="#ARC环境" class="headerlink" title="ARC环境"></a>ARC环境</h3><h4 id="第一种-NSGlobalBlock类型"><a href="#第一种-NSGlobalBlock类型" class="headerlink" title="第一种:NSGlobalBlock类型"></a>第一种:<strong>NSGlobalBlock</strong>类型</h4><p>Block 内部不引用外部的任何变量</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">void</span>(^block)() = ^&#123;</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,block);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="第二种-NSMallocBlock"><a href="#第二种-NSMallocBlock" class="headerlink" title="第二种:NSMallocBlock"></a>第二种:<strong>NSMallocBlock</strong></h4><p>Block 内部引用外部的变量</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSInteger</span> a = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">void</span>(^block)() = ^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%zd"</span>,a);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,block);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="MRC环境"><a href="#MRC环境" class="headerlink" title="MRC环境"></a>MRC环境</h3><h4 id="第一种-NSGlobalBlock"><a href="#第一种-NSGlobalBlock" class="headerlink" title="第一种:NSGlobalBlock"></a>第一种:<strong>NSGlobalBlock</strong></h4><p>Block 内部不引用外部的任何变量</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">void</span>(^block)() = ^&#123;</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,block);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="第二种-NSStackBlock"><a href="#第二种-NSStackBlock" class="headerlink" title="第二种:NSStackBlock"></a>第二种:<strong>NSStackBlock</strong></h4><p>Block 内部引用外部的变量</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSInteger</span> a = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">void</span>(^block)() = ^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%zd"</span>,a);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,block);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="第三种-NSMallocBlock"><a href="#第三种-NSMallocBlock" class="headerlink" title="第三种:NSMallocBlock"></a>第三种:<strong>NSMallocBlock</strong></h4><p>这一种通常不会在源码中直接出现,因为当一个 block 被 copy 的时候，才会将这个 block 复制到堆中</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">void</span>(^MyBlock)();</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()</span></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>)MyBlock block;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    __block <span class="built_in">NSInteger</span> a = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">void</span>(^block)() = ^&#123;</span><br><span class="line">        </span><br><span class="line">        a = <span class="number">15</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%zd"</span>,a);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span>.block = block;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,block);<span class="comment">//__NSStackBlock__</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,<span class="keyword">self</span>.block);<span class="comment">//__NSMallocBlock__</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="block"><a href="#block" class="headerlink" title="__block"></a>__block</h3><ol>
+<li>block 对外部变量的引用，block 默认是将其复制到其数据结构中来实现访问的<br>如果这个对象是一个引用类型(指针).则 block 将其引用计数加1.</li>
+<li>对于用 __block 修饰的外部变量,block 是复制其引用地址来实现访问的.</li>
+</ol>
+<h2 id="Block-中强引用和循环引用问题"><a href="#Block-中强引用和循环引用问题" class="headerlink" title="Block 中强引用和循环引用问题"></a>Block 中强引用和循环引用问题</h2><h3 id="ARC-下-Block-使用-copy-还是-strong"><a href="#ARC-下-Block-使用-copy-还是-strong" class="headerlink" title="ARC 下 Block 使用 copy 还是 strong"></a>ARC 下 Block 使用 copy 还是 strong</h3><p>分析:<br>使用 copy 是因为在 MRC 的时候需要将栈区的 block 拷贝到堆区使用.防止block 出了函数作用域就被释放.<br>而现在 ARC 中,只要block 使用到外部变量,就默认是在堆区.不存在之前的问题.</p>
+<p>答案. 用 copy 是没问题的.用 strong 也是没问题的.都是对 block 进行一个强引用而已.</p>
+<h3 id="Block-的循环引用"><a href="#Block-的循环引用" class="headerlink" title="Block 的循环引用"></a>Block 的循环引用</h3><h4 id="和控制器互相持有导致"><a href="#和控制器互相持有导致" class="headerlink" title="和控制器互相持有导致"></a>和控制器互相持有导致</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">void</span>(^MyBlock)();</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">strong</span>)MyBlock block;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line"></span><br><span class="line">    MyBlock block = ^&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,<span class="keyword">self</span>.view);<span class="comment">//block 内部将 self 强引用</span></span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span>.block = block;<span class="comment">// block 被控制器强引用.</span></span><br><span class="line">    </span><br><span class="line">    block();</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>)dealloc&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"我被释放了"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>分析: 有循环引用.首先 block 被控制器强引用. block 内部将 self 强引用.<br>导致控制器的引用计数无法为0,无法执行 dealloc方法.无法将 block 释放.<br>所以解决办法就是将其中的一个强引用打破.<br>解决</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">__<span class="keyword">weak</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>) weakSelf = <span class="keyword">self</span>;</span><br><span class="line">MyBlock block = ^&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,weakSelf.view);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="成员变量引起的循环引用"><a href="#成员变量引起的循环引用" class="headerlink" title="成员变量引起的循环引用"></a>成员变量引起的循环引用</h4><p>这里在提一嘴.如果你这样写也是会有循环引用的问题</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>)<span class="built_in">NSString</span> *name; <span class="comment">// 如果你有一个这样的属性</span></span><br><span class="line"></span><br><span class="line">   MyBlock block = ^&#123;        </span><br><span class="line">       <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,_name);</span><br><span class="line">   &#125;;</span><br></pre></td></tr></table></figure>
+<p>而这样却不会</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">__<span class="keyword">weak</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>) weakSelf = <span class="keyword">self</span>;</span><br><span class="line">MyBlock block = ^&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,weakSelf.name);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="Block-的几个小测验"><a href="#Block-的几个小测验" class="headerlink" title="Block 的几个小测验"></a>Block 的几个小测验</h2><p>1-5题 判断代码只能在 ARC的环境工作,还是 MRC 的环境工作.还是都可以,还是都不可以<br>6题    判断是否有错误,如果有如何修改</p>
+<h3 id="第一题"><a href="#第一题" class="headerlink" title="第一题"></a>第一题</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSInteger</span> a = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span>(^block)() = ^&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%zd"</span>,a);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="第二题"><a href="#第二题" class="headerlink" title="第二题"></a>第二题</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span> exampleTwo];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>) exampleTwo_addBlockToArray:(<span class="built_in">NSMutableArray</span> *)array &#123;</span><br><span class="line">    <span class="built_in">NSInteger</span> a = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">void</span>(^block)() = ^&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%zd"</span>,a);</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    [array addObject:block];    </span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>) exampleTwo &#123;</span><br><span class="line">    <span class="built_in">NSMutableArray</span> *arrayM = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line">    [<span class="keyword">self</span> exampleTwo_addBlockToArray:arrayM];</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">void</span>(^block)() = [arrayM objectAtIndex:<span class="number">0</span>];</span><br><span class="line">    </span><br><span class="line">    block();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="第三题"><a href="#第三题" class="headerlink" title="第三题"></a>第三题</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span> exampleTwo];</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>) exampleTwo_addBlockToArray:(<span class="built_in">NSMutableArray</span> *)array &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">void</span>(^block)() = ^&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"Block"</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    [array addObject:block];</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>) exampleTwo &#123;</span><br><span class="line">    <span class="built_in">NSMutableArray</span> *arrayM = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line">    [<span class="keyword">self</span> exampleTwo_addBlockToArray:arrayM];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">void</span>(^block)() = [arrayM objectAtIndex:<span class="number">0</span>];</span><br><span class="line">    </span><br><span class="line">    block();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="第四题"><a href="#第四题" class="headerlink" title="第四题"></a>第四题</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">void</span>(^MyBlock)();</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span> exampleTwo];</span><br><span class="line">&#125;</span><br><span class="line">- (MyBlock) exampleFour &#123;</span><br><span class="line">    <span class="built_in">NSInteger</span> a = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> ^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%zd"</span>,a);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>) exampleTwo &#123;</span><br><span class="line">    [<span class="keyword">self</span> exampleFour]();</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[<span class="keyword">self</span> exampleFour]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="第五题"><a href="#第五题" class="headerlink" title="第五题"></a>第五题</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">void</span>(^MyBlock)();</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span> exampleTwo];</span><br><span class="line">&#125;</span><br><span class="line">- (MyBlock) exampleFour &#123;</span><br><span class="line">    <span class="built_in">NSInteger</span> a = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">void</span>(^block)() = ^&#123;</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%zd"</span>,a);</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> block;</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>) exampleTwo &#123;</span><br><span class="line">    MyBlock block =  [<span class="keyword">self</span> exampleFour];</span><br><span class="line">    block();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="第六题"><a href="#第六题" class="headerlink" title="第六题"></a>第六题</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSMutableArray</span> *array = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line">    </span><br><span class="line">    MyBlock block = ^&#123;</span><br><span class="line">        [array addObject:<span class="string">@"你猜我对不对"</span>];</span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line">    block();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="答案"><a href="#答案" class="headerlink" title="答案:"></a>答案:</h3><ol>
+<li>都可以</li>
+<li>只能 ARC 因为 MRC 下你添加到可变数组中的是一个存储在栈区的 block 当方法<strong>exampleTwo_addBlockToArray</strong>执行结束,block 就失效了.</li>
+<li>都可以 MRC 和 ARC 都是存储在 全局区</li>
+<li>只能 ARC跟第二个类似.并且 MRC 下都无法编译.报错信息:Returning block that lives on the local stack</li>
+<li>只能在 ARC 工作.如果你在 MRC 下可以工作,哈哈.你在加一个 block()试一试.你就明白了.</li>
+<li>正确的.<br>提示:block 内部修改的是  array 指向堆区中的数组的内容,并没有修改 strM 本身的堆区地址<br>白话解释.首先array 是一个指针. block 把这个指针拷贝到堆区.(因为指针原本在栈区),拷贝到堆区,然后修改的是这个指针指向的对象.而不是这个指针的地址.如何算是修改了 array 这个指针.例如: array = [NSarray array];</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/20/iOS 后台运行 Executing Finite-Length Tasks/" rel="next" title="iOS 后台运行 Executing Finite-Length Tasks">
+                <i class="fa fa-chevron-left"></i> iOS 后台运行 Executing Finite-Length Tasks
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/15/如何快速接手老项目/" rel="prev" title="如何快速接手老项目">
+                如何快速接手老项目 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/icon.png"
+                alt="Lin Wang" />
+            
+              <p class="site-author-name" itemprop="name">Lin Wang</p>
+              <p class="site-description motion-element" itemprop="description">任何事情不会怕慢，怕的是踌躇不前。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Block-的书写格式"><span class="nav-number">1.</span> <span class="nav-text">Block 的书写格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一个复杂的-Block"><span class="nav-number">1.1.</span> <span class="nav-text">一个复杂的 Block</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-Typedef-定义的-Block"><span class="nav-number">1.2.</span> <span class="nav-text">使用 Typedef 定义的 Block</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Block-类型及内存"><span class="nav-number">2.</span> <span class="nav-text">Block 类型及内存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ARC环境"><span class="nav-number">2.1.</span> <span class="nav-text">ARC环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一种-NSGlobalBlock类型"><span class="nav-number">2.1.1.</span> <span class="nav-text">第一种:NSGlobalBlock类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二种-NSMallocBlock"><span class="nav-number">2.1.2.</span> <span class="nav-text">第二种:NSMallocBlock</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MRC环境"><span class="nav-number">2.2.</span> <span class="nav-text">MRC环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一种-NSGlobalBlock"><span class="nav-number">2.2.1.</span> <span class="nav-text">第一种:NSGlobalBlock</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二种-NSStackBlock"><span class="nav-number">2.2.2.</span> <span class="nav-text">第二种:NSStackBlock</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三种-NSMallocBlock"><span class="nav-number">2.2.3.</span> <span class="nav-text">第三种:NSMallocBlock</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#block"><span class="nav-number">2.3.</span> <span class="nav-text">__block</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Block-中强引用和循环引用问题"><span class="nav-number">3.</span> <span class="nav-text">Block 中强引用和循环引用问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ARC-下-Block-使用-copy-还是-strong"><span class="nav-number">3.1.</span> <span class="nav-text">ARC 下 Block 使用 copy 还是 strong</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Block-的循环引用"><span class="nav-number">3.2.</span> <span class="nav-text">Block 的循环引用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#和控制器互相持有导致"><span class="nav-number">3.2.1.</span> <span class="nav-text">和控制器互相持有导致</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#成员变量引起的循环引用"><span class="nav-number">3.2.2.</span> <span class="nav-text">成员变量引起的循环引用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Block-的几个小测验"><span class="nav-number">4.</span> <span class="nav-text">Block 的几个小测验</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一题"><span class="nav-number">4.1.</span> <span class="nav-text">第一题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二题"><span class="nav-number">4.2.</span> <span class="nav-text">第二题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三题"><span class="nav-number">4.3.</span> <span class="nav-text">第三题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四题"><span class="nav-number">4.4.</span> <span class="nav-text">第四题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五题"><span class="nav-number">4.5.</span> <span class="nav-text">第五题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第六题"><span class="nav-number">4.6.</span> <span class="nav-text">第六题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#答案"><span class="nav-number">4.7.</span> <span class="nav-text">答案:</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lin Wang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">HuangLinWang</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -79,21 +79,17 @@
 
 
 
-<meta name="description" content="目的搭建一个自己测试用的服务器">
+<meta name="description" content="目的:解决循环引用问题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="利用 MAC 搭建 Apache 服务器">
-<meta property="og:url" content="http://yoursite.com/2017/03/01/服务器 - Apache - 搭建/index.html">
+<meta property="og:title" content="weakSelf&#x2F;strongSelf">
+<meta property="og:url" content="http://yoursite.com/2017/04/15/weakSelf-strongSelf/index.html">
 <meta property="og:site_name" content="LinWang&#39;s Blog">
-<meta property="og:description" content="目的搭建一个自己测试用的服务器">
+<meta property="og:description" content="目的:解决循环引用问题">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://owzkryl0i.bkt.clouddn.com/14898931240947.png">
-<meta property="og:image" content="http://owzkryl0i.bkt.clouddn.com/14898931375272.png">
-<meta property="og:image" content="http://owzkryl0i.bkt.clouddn.com/14898931470627.png">
-<meta property="og:updated_time" content="2018-03-07T08:25:26.417Z">
+<meta property="og:updated_time" content="2018-03-07T09:13:05.411Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="利用 MAC 搭建 Apache 服务器">
-<meta name="twitter:description" content="目的搭建一个自己测试用的服务器">
-<meta name="twitter:image" content="http://owzkryl0i.bkt.clouddn.com/14898931240947.png">
+<meta name="twitter:title" content="weakSelf&#x2F;strongSelf">
+<meta name="twitter:description" content="目的:解决循环引用问题">
 
 
 
@@ -123,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/01/服务器 - Apache - 搭建/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/15/weakSelf-strongSelf/"/>
 
 
 
 
 
-  <title>利用 MAC 搭建 Apache 服务器 | LinWang's Blog</title>
+  <title>weakSelf/strongSelf | LinWang's Blog</title>
   
 
 
@@ -246,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/01/服务器 - Apache - 搭建/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/weakSelf-strongSelf/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lin Wang">
@@ -263,7 +259,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">利用 MAC 搭建 Apache 服务器</h1>
+          <h1 class="post-title" itemprop="name headline">weakSelf/strongSelf</h1>
         
 
         <div class="post-meta">
@@ -275,8 +271,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-01T15:05:14+08:00">
-                2017-03-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T11:24:25+08:00">
+                2017-04-15
               </time>
             
 
@@ -298,8 +294,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Other-Base-Technology/" itemprop="url" rel="index">
-                    <span itemprop="name">Other Base Technology</span>
+                  <a href="/categories/Block/" itemprop="url" rel="index">
+                    <span itemprop="name">Block</span>
                   </a>
                 </span>
 
@@ -335,24 +331,18 @@
       
 
       
-        <h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>搭建一个自己测试用的服务器</p>
-<a id="more"></a>
-<h2 id="为什么是-Apache"><a href="#为什么是-Apache" class="headerlink" title="为什么是 Apache"></a>为什么是 Apache</h2><p>MAC 自带,只需要修改几个简单的配置即可</p>
-<h2 id="准备开始演练"><a href="#准备开始演练" class="headerlink" title="准备开始演练"></a>准备开始演练</h2><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>创建一个文件夹,起个名,例如叫:<strong>WebServer</strong>作为你的网络资源库</p>
-<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>找到 Apache2的文件夹<br>快捷键 <strong>command + shift + G</strong><br>输入 <strong>/etc/apache2/</strong></p>
-<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>找到httpd.conf文件,先备份,在修改,以免出错.<br>修改这个文件之前你需要打开修改权限</p>
-<p>备注:如果你打开了修改权限还是无法进行编辑操作.那么请使用 Vim打开进行修改.</p>
-<h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><p>第一个位置 :修改资源文件的根目录<br><img src="http://owzkryl0i.bkt.clouddn.com/14898931240947.png" alt=""></p>
-<p>第二个位置 :添加Indexes 目的:在浏览器中打开<br><img src="http://owzkryl0i.bkt.clouddn.com/14898931375272.png" alt=""></p>
-<p>第三个位置 :重启 PHP<br><img src="http://owzkryl0i.bkt.clouddn.com/14898931470627.png" alt=""></p>
-<h3 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h3><p>启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apachectl -k start</span><br></pre></td></tr></table></figure>
-<p>重新启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apachectl -k restart</span><br></pre></td></tr></table></figure>
-<p>关闭</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apachectl -k stop</span><br></pre></td></tr></table></figure>
-<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>在浏览器中输入 <strong>localhost</strong> 或者 <strong>127.0.0.1</strong></p>
-<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p>每次重启计算机,Apache 是默认不启动的,如果你需要使用,就要重启开启.</p>
+        <h2 id="目的-解决循环引用问题"><a href="#目的-解决循环引用问题" class="headerlink" title="目的:解决循环引用问题"></a>目的:解决循环引用问题</h2><a id="more"></a>
+<h3 id="情况一"><a href="#情况一" class="headerlink" title="情况一:"></a>情况一:</h3><p>传进 block 之前将 self 转成 weak automatic 的变量.<br>这样block 就不会出现对 self 的强引用.<br>如果block 执行完成之前,self 被释放了,weakSelf也会变成 nil</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">__<span class="keyword">weak</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>) weakSelf = <span class="keyword">self</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">self</span>.block = ^&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,weakSelf);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="情况二"><a href="#情况二" class="headerlink" title="情况二:"></a>情况二:</h3><p>clang 的文档表示，在 doSomething 内，weakSelf 不会被释放。但，下面的情况除外：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">__<span class="keyword">weak</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>) weakSelf = <span class="keyword">self</span>;</span><br><span class="line">    <span class="built_in">dispatch_async</span>(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^&#123;</span><br><span class="line">    [weakSelf doSomething];</span><br><span class="line">    [weakSelf doOtherThing];</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在 doSomething 中，weakSelf 不会变成 nil，不过在 doSomething 执行完成，调用第二个方法 doOtherThing 的时候，weakSelf <strong>有可能</strong>被释放(注意是有可能)，于是，strongSelf 就派上用场了：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">__<span class="keyword">weak</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>) weakSelf = <span class="keyword">self</span>;</span><br><span class="line">    <span class="built_in">dispatch_async</span>(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^&#123;</span><br><span class="line">    __<span class="keyword">strong</span> <span class="keyword">typeof</span>(weakSelf) strongSelf = weakSelf;</span><br><span class="line">    [strongSelf doSomething];</span><br><span class="line">    [strongSelf doOtherThing];</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="情况三"><a href="#情况三" class="headerlink" title="情况三"></a>情况三</h3><p>如果你像这样添加了一个私有成员变量</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span>&#123;</span><br><span class="line">    <span class="built_in">NSString</span> *_string;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>而你需要在 Block 中访问怎么办?解决如下</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];    </span><br><span class="line">    _string = <span class="string">@"hello World"</span>;    </span><br><span class="line">    </span><br><span class="line">    __<span class="keyword">weak</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>) weakSelf = <span class="keyword">self</span>;    </span><br><span class="line">    <span class="keyword">self</span>.block = ^&#123;</span><br><span class="line">        __<span class="keyword">strong</span> <span class="keyword">typeof</span>(weakSelf) strongSelf = weakSelf;        </span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,strongSelf -&gt; _string);</span><br><span class="line">    &#125;;</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">self</span>.block();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>__strong 确保在 Block 内，strongSelf 不会被释放。<br>在 Block 内如果需要访问 self 的方法、变量，建议使用 weakSelf。<br>如果在 Block 内需要多次 访问 self，则需要使用 strongSelf。</p>
 
       
     </div>
@@ -377,8 +367,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/14/搭建个人博客/" rel="next" title="搭建个人博客">
-                <i class="fa fa-chevron-left"></i> 搭建个人博客
+              <a href="/2017/04/01/Tomcat（http）服务器搭建/" rel="next" title="Tomcat（http）服务器搭建">
+                <i class="fa fa-chevron-left"></i> Tomcat（http）服务器搭建
               </a>
             
           </div>
@@ -387,8 +377,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/15/Xcode - 使用技巧/" rel="prev" title="Xcode - 使用技巧">
-                Xcode - 使用技巧 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/20/iOS 后台运行 Executing Finite-Length Tasks/" rel="prev" title="iOS 后台运行 Executing Finite-Length Tasks">
+                iOS 后台运行 Executing Finite-Length Tasks <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -516,7 +506,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目的"><span class="nav-number">1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么是-Apache"><span class="nav-number">2.</span> <span class="nav-text">为什么是 Apache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备开始演练"><span class="nav-number">3.</span> <span class="nav-text">准备开始演练</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步"><span class="nav-number">3.1.</span> <span class="nav-text">第一步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步"><span class="nav-number">3.2.</span> <span class="nav-text">第二步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步"><span class="nav-number">3.3.</span> <span class="nav-text">第三步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改"><span class="nav-number">3.4.</span> <span class="nav-text">修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#完成"><span class="nav-number">3.5.</span> <span class="nav-text">完成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">3.6.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意"><span class="nav-number">3.7.</span> <span class="nav-text">注意</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目的-解决循环引用问题"><span class="nav-number">1.</span> <span class="nav-text">目的:解决循环引用问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#情况一"><span class="nav-number">1.1.</span> <span class="nav-text">情况一:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#情况二"><span class="nav-number">1.2.</span> <span class="nav-text">情况二:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#情况三"><span class="nav-number">1.3.</span> <span class="nav-text">情况三</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
