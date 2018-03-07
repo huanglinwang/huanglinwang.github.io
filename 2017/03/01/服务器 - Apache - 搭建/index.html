@@ -86,14 +86,14 @@
 <meta property="og:site_name" content="LinWang&#39;s Blog">
 <meta property="og:description" content="目的搭建一个自己测试用的服务器">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2017/03/01/服务器%20-%20Apache%20-%20搭建/media/14898929953738/14898931240947.png">
-<meta property="og:image" content="http://yoursite.com/2017/03/01/服务器%20-%20Apache%20-%20搭建/media/14898929953738/14898931375272.png">
-<meta property="og:image" content="http://yoursite.com/2017/03/01/服务器%20-%20Apache%20-%20搭建/media/14898929953738/14898931470627.png">
-<meta property="og:updated_time" content="2018-03-07T08:23:51.853Z">
+<meta property="og:image" content="http://owzkryl0i.bkt.clouddn.com/14898931240947.png">
+<meta property="og:image" content="http://owzkryl0i.bkt.clouddn.com/14898931375272.png">
+<meta property="og:image" content="http://owzkryl0i.bkt.clouddn.com/14898931470627.png">
+<meta property="og:updated_time" content="2018-03-07T08:25:26.417Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用 MAC 搭建 Apache 服务器">
 <meta name="twitter:description" content="目的搭建一个自己测试用的服务器">
-<meta name="twitter:image" content="http://yoursite.com/2017/03/01/服务器%20-%20Apache%20-%20搭建/media/14898929953738/14898931240947.png">
+<meta name="twitter:image" content="http://owzkryl0i.bkt.clouddn.com/14898931240947.png">
 
 
 
@@ -335,15 +335,16 @@
       
 
       
-        <h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>搭建一个自己测试用的服务器<br><a id="more"></a></p>
+        <h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>搭建一个自己测试用的服务器</p>
+<a id="more"></a>
 <h2 id="为什么是-Apache"><a href="#为什么是-Apache" class="headerlink" title="为什么是 Apache"></a>为什么是 Apache</h2><p>MAC 自带,只需要修改几个简单的配置即可</p>
 <h2 id="准备开始演练"><a href="#准备开始演练" class="headerlink" title="准备开始演练"></a>准备开始演练</h2><h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>创建一个文件夹,起个名,例如叫:<strong>WebServer</strong>作为你的网络资源库</p>
 <h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>找到 Apache2的文件夹<br>快捷键 <strong>command + shift + G</strong><br>输入 <strong>/etc/apache2/</strong></p>
 <h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>找到httpd.conf文件,先备份,在修改,以免出错.<br>修改这个文件之前你需要打开修改权限</p>
 <p>备注:如果你打开了修改权限还是无法进行编辑操作.那么请使用 Vim打开进行修改.</p>
-<h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><p>第一个位置 :修改资源文件的根目录<br><img src="media/14898929953738/14898931240947.png" alt=""></p>
-<p>第二个位置 :添加Indexes 目的:在浏览器中打开<br><img src="media/14898929953738/14898931375272.png" alt=""></p>
-<p>第三个位置 :重启 PHP<br><img src="media/14898929953738/14898931470627.png" alt=""></p>
+<h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><p>第一个位置 :修改资源文件的根目录<br><img src="http://owzkryl0i.bkt.clouddn.com/14898931240947.png" alt=""></p>
+<p>第二个位置 :添加Indexes 目的:在浏览器中打开<br><img src="http://owzkryl0i.bkt.clouddn.com/14898931375272.png" alt=""></p>
+<p>第三个位置 :重启 PHP<br><img src="http://owzkryl0i.bkt.clouddn.com/14898931470627.png" alt=""></p>
 <h3 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h3><p>启动</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apachectl -k start</span><br></pre></td></tr></table></figure>
 <p>重新启动</p>
