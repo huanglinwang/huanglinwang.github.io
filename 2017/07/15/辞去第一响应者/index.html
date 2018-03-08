@@ -79,20 +79,17 @@
 
 
 
-<meta name="description" content="情景一 背景色引起的黑边问题 情景:NavigationController 没有任何设置VCOne 设置了背景颜色VCTwo 没有设置背景颜色,不过 VCTwo 添加了一个 View 设置了颜色此时就会出现黑边问题">
+<meta name="description" content="方案一 1[self.view endEditing:YES];">
 <meta property="og:type" content="article">
-<meta property="og:title" content="导航栏 push 右上角黑边问题">
-<meta property="og:url" content="http://yoursite.com/2017/06/20/导航栏 push 右上角黑边问题/index.html">
+<meta property="og:title" content="辞去第一响应者">
+<meta property="og:url" content="http://yoursite.com/2017/07/15/辞去第一响应者/index.html">
 <meta property="og:site_name" content="LinWang&#39;s Blog">
-<meta property="og:description" content="情景一 背景色引起的黑边问题 情景:NavigationController 没有任何设置VCOne 设置了背景颜色VCTwo 没有设置背景颜色,不过 VCTwo 添加了一个 View 设置了颜色此时就会出现黑边问题">
+<meta property="og:description" content="方案一 1[self.view endEditing:YES];">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/huanglinwang/ImageData/master/9.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/huanglinwang/ImageData/master/10.png">
-<meta property="og:updated_time" content="2018-03-07T09:24:40.434Z">
+<meta property="og:updated_time" content="2018-03-08T03:01:04.918Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="导航栏 push 右上角黑边问题">
-<meta name="twitter:description" content="情景一 背景色引起的黑边问题 情景:NavigationController 没有任何设置VCOne 设置了背景颜色VCTwo 没有设置背景颜色,不过 VCTwo 添加了一个 View 设置了颜色此时就会出现黑边问题">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/huanglinwang/ImageData/master/9.png">
+<meta name="twitter:title" content="辞去第一响应者">
+<meta name="twitter:description" content="方案一 1[self.view endEditing:YES];">
 
 
 
@@ -122,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/20/导航栏 push 右上角黑边问题/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/15/辞去第一响应者/"/>
 
 
 
 
 
-  <title>导航栏 push 右上角黑边问题 | LinWang's Blog</title>
+  <title>辞去第一响应者 | LinWang's Blog</title>
   
 
 
@@ -245,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/20/导航栏 push 右上角黑边问题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/15/辞去第一响应者/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lin Wang">
@@ -262,7 +259,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">导航栏 push 右上角黑边问题</h1>
+          <h1 class="post-title" itemprop="name headline">辞去第一响应者</h1>
         
 
         <div class="post-meta">
@@ -274,8 +271,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-20T17:09:50+08:00">
-                2017-06-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-15T00:00:00+08:00">
+                2017-07-15
               </time>
             
 
@@ -334,19 +331,13 @@
       
 
       
-        <h3 id="情景一-背景色引起的黑边问题"><a href="#情景一-背景色引起的黑边问题" class="headerlink" title="情景一 背景色引起的黑边问题"></a>情景一 背景色引起的黑边问题</h3><p><img src="https://raw.githubusercontent.com/huanglinwang/ImageData/master/9.png" alt="GitHub set up"></p>
-<p>情景:<br>NavigationController 没有任何设置<br>VCOne 设置了<strong>背景颜色</strong><br>VCTwo 没有设置<strong>背景颜色</strong>,不过 VCTwo 添加了一个 View 设置了颜色<br>此时就会出现黑边问题</p>
-<a id="more"></a>
-<h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><p>第一种<br>给 VCTwo 设置背景色即可<br>第二种<br>在 VCOne 中将 Navigation 的 NavigationBar的translucent属性设置为 false</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.navigationController.navigationBar.translucent = <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
-<h3 id="情景二-hidesBottomBarWhenPushed引起的黑边问题"><a href="#情景二-hidesBottomBarWhenPushed引起的黑边问题" class="headerlink" title="情景二 hidesBottomBarWhenPushed引起的黑边问题"></a>情景二 hidesBottomBarWhenPushed引起的黑边问题</h3><p><img src="https://raw.githubusercontent.com/huanglinwang/ImageData/master/10.png" alt="GitHub set up"></p>
-<p>情景:<br>TabBarController 没有任何设置<br>VCOne 设置了背景颜色<br>VCTwo 设置了背景颜色<br>NavigationController 中重写如下代码</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)pushViewController:(<span class="built_in">UIViewController</span> *)viewController animated:(<span class="built_in">BOOL</span>)animated&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>.viewControllers.count&gt;<span class="number">0</span>) &#123;</span><br><span class="line">        viewController.hidesBottomBarWhenPushed=<span class="literal">YES</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    [<span class="keyword">super</span> pushViewController:viewController animated:animated];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>解决办法:<br>第一种 -&gt; 这种办法设置后NavigationBar不在半透明<br>在 VCOne 中将 Navigation 的 NavigationBar的translucent属性设置为 false</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.navigationController.navigationBar.translucent = <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
-<p>第二种<br>给 window 设置一个背景色</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.window.backgroundColor = [<span class="built_in">UIColor</span> whiteColor];</span><br></pre></td></tr></table></figure>
-<p>哈哈,你会发现第二种也是不行的.其实不是不行.<br>只是你需要把 <strong>VCOne</strong> 和 <strong>VCTwo</strong> 以及 <strong>Window</strong> 的背景色设置成一致的即可解决这个问题.否则还是会有色差的问题存在.</p>
+        <p><strong>方案一</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span>.view endEditing:<span class="literal">YES</span>];</span><br></pre></td></tr></table></figure>
+<a id="more"></a>    
+<p><strong>方案二</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="built_in">UIApplication</span> sharedApplication] sendAction:<span class="keyword">@selector</span>(resignFirstResponder) to:<span class="literal">nil</span> from:<span class="literal">nil</span> forEvent:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure>
+<p><strong>方案三</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[[<span class="built_in">UIApplication</span> sharedApplication] keyWindow] endEditing:<span class="literal">YES</span>];</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -371,8 +362,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/10/多线程中的互斥锁🔐/" rel="next" title="多线程中的互斥锁🔐">
-                <i class="fa fa-chevron-left"></i> 多线程中的互斥锁🔐
+              <a href="/2017/07/10/苹果手机 - 开发者模式/" rel="next" title="苹果手机 - 开发者模式">
+                <i class="fa fa-chevron-left"></i> 苹果手机 - 开发者模式
               </a>
             
           </div>
@@ -380,10 +371,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/30/按钮Button的同时触发问题解决/" rel="prev" title="按钮Button的同时触发问题解决">
-                按钮Button的同时触发问题解决 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -435,17 +422,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -500,22 +478,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#情景一-背景色引起的黑边问题"><span class="nav-number">1.</span> <span class="nav-text">情景一 背景色引起的黑边问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解决办法"><span class="nav-number">1.1.</span> <span class="nav-text">解决办法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#情景二-hidesBottomBarWhenPushed引起的黑边问题"><span class="nav-number">2.</span> <span class="nav-text">情景二 hidesBottomBarWhenPushed引起的黑边问题</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
