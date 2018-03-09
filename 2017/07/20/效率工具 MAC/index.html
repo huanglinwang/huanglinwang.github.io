@@ -79,17 +79,27 @@
 
 
 
-<meta name="description" content="目的:解决循环引用问题">
+<meta name="description" content="快捷键提示工具: cheatSheet  官网下载地址 https://www.mediaatelier.com/CheatSheet/">
 <meta property="og:type" content="article">
-<meta property="og:title" content="weakSelf&#x2F;strongSelf">
-<meta property="og:url" content="http://yoursite.com/2017/04/15/weakSelf-strongSelf/index.html">
+<meta property="og:title" content="效率工具 MAC">
+<meta property="og:url" content="http://yoursite.com/2017/07/20/效率工具 MAC/index.html">
 <meta property="og:site_name" content="LinWang&#39;s Blog">
-<meta property="og:description" content="目的:解决循环引用问题">
+<meta property="og:description" content="快捷键提示工具: cheatSheet  官网下载地址 https://www.mediaatelier.com/CheatSheet/">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-07T09:13:05.411Z">
+<meta property="og:image" content="http://owzkryl0i.bkt.clouddn.com/15065909064861.jpg">
+<meta property="og:image" content="http://owzkryl0i.bkt.clouddn.com/15065909158192.jpg">
+<meta property="og:image" content="http://owzkryl0i.bkt.clouddn.com/15066659635157.jpg">
+<meta property="og:image" content="http://owzkryl0i.bkt.clouddn.com/15066881000950.jpg">
+<meta property="og:image" content="http://owzkryl0i.bkt.clouddn.com/15066883508456.jpg">
+<meta property="og:image" content="http://owzkryl0i.bkt.clouddn.com/15066884221577.jpg">
+<meta property="og:image" content="http://owzkryl0i.bkt.clouddn.com/15066895183040.jpg">
+<meta property="og:image" content="http://owzkryl0i.bkt.clouddn.com/15066894416207.jpg">
+<meta property="og:image" content="http://owzkryl0i.bkt.clouddn.com/15066893721519.jpg">
+<meta property="og:updated_time" content="2018-03-09T02:58:55.541Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="weakSelf&#x2F;strongSelf">
-<meta name="twitter:description" content="目的:解决循环引用问题">
+<meta name="twitter:title" content="效率工具 MAC">
+<meta name="twitter:description" content="快捷键提示工具: cheatSheet  官网下载地址 https://www.mediaatelier.com/CheatSheet/">
+<meta name="twitter:image" content="http://owzkryl0i.bkt.clouddn.com/15065909064861.jpg">
 
 
 
@@ -119,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/15/weakSelf-strongSelf/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/20/效率工具 MAC/"/>
 
 
 
 
 
-  <title>weakSelf/strongSelf | LinWang's Blog</title>
+  <title>效率工具 MAC | LinWang's Blog</title>
   
 
 
@@ -242,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/15/weakSelf-strongSelf/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/20/效率工具 MAC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lin Wang">
@@ -259,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">weakSelf/strongSelf</h1>
+          <h1 class="post-title" itemprop="name headline">效率工具 MAC</h1>
         
 
         <div class="post-meta">
@@ -271,8 +281,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T11:24:25+08:00">
-                2017-04-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-20T00:00:00+08:00">
+                2017-07-20
               </time>
             
 
@@ -294,8 +304,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Block/" itemprop="url" rel="index">
-                    <span itemprop="name">Block</span>
+                  <a href="/categories/日常生活/" itemprop="url" rel="index">
+                    <span itemprop="name">日常生活</span>
                   </a>
                 </span>
 
@@ -331,18 +341,43 @@
       
 
       
-        <h2 id="目的-解决循环引用问题"><a href="#目的-解决循环引用问题" class="headerlink" title="目的:解决循环引用问题"></a>目的:解决循环引用问题</h2><a id="more"></a>
-<h3 id="情况一"><a href="#情况一" class="headerlink" title="情况一:"></a>情况一:</h3><p>传进 block 之前将 self 转成 weak automatic 的变量.<br>这样block 就不会出现对 self 的强引用.<br>如果block 执行完成之前,self 被释放了,weakSelf也会变成 nil</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">__<span class="keyword">weak</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>) weakSelf = <span class="keyword">self</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">self</span>.block = ^&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,weakSelf);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="情况二"><a href="#情况二" class="headerlink" title="情况二:"></a>情况二:</h3><p>clang 的文档表示，在 doSomething 内，weakSelf 不会被释放。但，下面的情况除外：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">__<span class="keyword">weak</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>) weakSelf = <span class="keyword">self</span>;</span><br><span class="line">    <span class="built_in">dispatch_async</span>(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^&#123;</span><br><span class="line">    [weakSelf doSomething];</span><br><span class="line">    [weakSelf doOtherThing];</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>在 doSomething 中，weakSelf 不会变成 nil，不过在 doSomething 执行完成，调用第二个方法 doOtherThing 的时候，weakSelf <strong>有可能</strong>被释放(注意是有可能)，于是，strongSelf 就派上用场了：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">__<span class="keyword">weak</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>) weakSelf = <span class="keyword">self</span>;</span><br><span class="line">    <span class="built_in">dispatch_async</span>(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^&#123;</span><br><span class="line">    __<span class="keyword">strong</span> <span class="keyword">typeof</span>(weakSelf) strongSelf = weakSelf;</span><br><span class="line">    [strongSelf doSomething];</span><br><span class="line">    [strongSelf doOtherThing];</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="情况三"><a href="#情况三" class="headerlink" title="情况三"></a>情况三</h3><p>如果你像这样添加了一个私有成员变量</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span>&#123;</span><br><span class="line">    <span class="built_in">NSString</span> *_string;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>而你需要在 Block 中访问怎么办?解决如下</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];    </span><br><span class="line">    _string = <span class="string">@"hello World"</span>;    </span><br><span class="line">    </span><br><span class="line">    __<span class="keyword">weak</span> <span class="keyword">typeof</span>(<span class="keyword">self</span>) weakSelf = <span class="keyword">self</span>;    </span><br><span class="line">    <span class="keyword">self</span>.block = ^&#123;</span><br><span class="line">        __<span class="keyword">strong</span> <span class="keyword">typeof</span>(weakSelf) strongSelf = weakSelf;        </span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,strongSelf -&gt; _string);</span><br><span class="line">    &#125;;</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">self</span>.block();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>__strong 确保在 Block 内，strongSelf 不会被释放。<br>在 Block 内如果需要访问 self 的方法、变量，建议使用 weakSelf。<br>如果在 Block 内需要多次 访问 self，则需要使用 strongSelf。</p>
+        <h2 id="快捷键提示工具-cheatSheet"><a href="#快捷键提示工具-cheatSheet" class="headerlink" title="快捷键提示工具: cheatSheet"></a>快捷键提示工具: cheatSheet</h2><p><img src="http://owzkryl0i.bkt.clouddn.com/15065909064861.jpg" alt=" -w150"></p>
+<blockquote>
+<p>官网下载地址 <a href="https://www.mediaatelier.com/CheatSheet/" target="_blank" rel="noopener">https://www.mediaatelier.com/CheatSheet/</a></p>
+</blockquote>
+<a id="more"></a>
+<h2 id="云存储工具-百度网盘"><a href="#云存储工具-百度网盘" class="headerlink" title="云存储工具: 百度网盘"></a>云存储工具: 百度网盘</h2><p><img src="http://owzkryl0i.bkt.clouddn.com/15065909158192.jpg" alt=" -w150"></p>
+<blockquote>
+<p>下载地址 链接:<a href="http://pan.baidu.com/s/1jHVuLa2" target="_blank" rel="noopener">http://pan.baidu.com/s/1jHVuLa2</a>  密码:crfz</p>
+</blockquote>
+<h2 id="云端笔记工具-印象笔记"><a href="#云端笔记工具-印象笔记" class="headerlink" title="云端笔记工具: 印象笔记"></a>云端笔记工具: 印象笔记</h2><p><img src="http://owzkryl0i.bkt.clouddn.com/15066659635157.jpg" alt=" -w150"></p>
+<blockquote>
+<p>下载地址 <a href="https://www.yinxiang.com/download/" target="_blank" rel="noopener">https://www.yinxiang.com/download/</a></p>
+</blockquote>
+<h2 id="密码保存工具-1Password"><a href="#密码保存工具-1Password" class="headerlink" title="密码保存工具: 1Password"></a>密码保存工具: 1Password</h2><p><img src="http://owzkryl0i.bkt.clouddn.com/15066881000950.jpg" alt=" -w150"></p>
+<blockquote>
+<p>下载地址 <a href="https://1password.com/downloads/" target="_blank" rel="noopener">https://1password.com/downloads/</a></p>
+</blockquote>
+<h2 id="日常提醒备忘录-滴答清单"><a href="#日常提醒备忘录-滴答清单" class="headerlink" title="日常提醒备忘录: 滴答清单"></a>日常提醒备忘录: 滴答清单</h2><p><img src="http://owzkryl0i.bkt.clouddn.com/15066883508456.jpg" alt=" -w150"></p>
+<blockquote>
+<p>下载地址 <a href="https://dida365.com/#q/all/today" target="_blank" rel="noopener">https://dida365.com/#q/all/today</a></p>
+</blockquote>
+<h2 id="MarkDown文本编辑器-Mweb-99￥"><a href="#MarkDown文本编辑器-Mweb-99￥" class="headerlink" title="MarkDown文本编辑器: Mweb(99￥)"></a>MarkDown文本编辑器: Mweb(99￥)</h2><p><img src="http://owzkryl0i.bkt.clouddn.com/15066884221577.jpg" alt=" -w150"></p>
+<blockquote>
+<p>下载地址 链接:<a href="http://pan.baidu.com/s/1o8t9o0a" target="_blank" rel="noopener">http://pan.baidu.com/s/1o8t9o0a</a>  密码:1av1 </p>
+</blockquote>
+<h2 id="图片压缩-ImageOptim"><a href="#图片压缩-ImageOptim" class="headerlink" title="图片压缩: ImageOptim"></a>图片压缩: ImageOptim</h2><p><img src="http://owzkryl0i.bkt.clouddn.com/15066895183040.jpg" alt=" -w150"></p>
+<blockquote>
+<p>下载地址 链接:<a href="http://pan.baidu.com/s/1c2IWczI" target="_blank" rel="noopener">http://pan.baidu.com/s/1c2IWczI</a>  密码:8zor</p>
+</blockquote>
+<h2 id="图片标记-MarkMan"><a href="#图片标记-MarkMan" class="headerlink" title="图片标记: MarkMan"></a>图片标记: MarkMan</h2><p><img src="http://owzkryl0i.bkt.clouddn.com/15066894416207.jpg" alt=" -w150"></p>
+<blockquote>
+<p>下载地址 链接:<a href="http://pan.baidu.com/s/1eSKnSDs" target="_blank" rel="noopener">http://pan.baidu.com/s/1eSKnSDs</a>  密码:k25u</p>
+</blockquote>
+<h2 id="获取ipa包中的图片资源-iOS-Images-Extractor"><a href="#获取ipa包中的图片资源-iOS-Images-Extractor" class="headerlink" title="获取ipa包中的图片资源: iOS Images Extractor"></a>获取ipa包中的图片资源: iOS Images Extractor</h2><p><img src="http://owzkryl0i.bkt.clouddn.com/15066893721519.jpg" alt=" -w150"></p>
+<blockquote>
+<p>下载地址 链接:<a href="http://pan.baidu.com/s/1jHPVo3c" target="_blank" rel="noopener">http://pan.baidu.com/s/1jHPVo3c</a>  密码:mwrz</p>
+</blockquote>
 
       
     </div>
@@ -367,8 +402,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/01/Tomcat（http）服务器搭建/" rel="next" title="Tomcat（http）服务器搭建">
-                <i class="fa fa-chevron-left"></i> Tomcat（http）服务器搭建
+              <a href="/2017/07/20/开发心得/" rel="next" title="开发心得">
+                <i class="fa fa-chevron-left"></i> 开发心得
               </a>
             
           </div>
@@ -377,8 +412,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/20/iOS 后台运行 Executing Finite-Length Tasks/" rel="prev" title="iOS 后台运行 Executing Finite-Length Tasks">
-                iOS 后台运行 Executing Finite-Length Tasks <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/21/日常开发流程/" rel="prev" title="日常开发流程">
+                日常开发流程 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -506,7 +541,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目的-解决循环引用问题"><span class="nav-number">1.</span> <span class="nav-text">目的:解决循环引用问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#情况一"><span class="nav-number">1.1.</span> <span class="nav-text">情况一:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#情况二"><span class="nav-number">1.2.</span> <span class="nav-text">情况二:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#情况三"><span class="nav-number">1.3.</span> <span class="nav-text">情况三</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#快捷键提示工具-cheatSheet"><span class="nav-number">1.</span> <span class="nav-text">快捷键提示工具: cheatSheet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#云存储工具-百度网盘"><span class="nav-number">2.</span> <span class="nav-text">云存储工具: 百度网盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#云端笔记工具-印象笔记"><span class="nav-number">3.</span> <span class="nav-text">云端笔记工具: 印象笔记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#密码保存工具-1Password"><span class="nav-number">4.</span> <span class="nav-text">密码保存工具: 1Password</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#日常提醒备忘录-滴答清单"><span class="nav-number">5.</span> <span class="nav-text">日常提醒备忘录: 滴答清单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MarkDown文本编辑器-Mweb-99￥"><span class="nav-number">6.</span> <span class="nav-text">MarkDown文本编辑器: Mweb(99￥)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片压缩-ImageOptim"><span class="nav-number">7.</span> <span class="nav-text">图片压缩: ImageOptim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片标记-MarkMan"><span class="nav-number">8.</span> <span class="nav-text">图片标记: MarkMan</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取ipa包中的图片资源-iOS-Images-Extractor"><span class="nav-number">9.</span> <span class="nav-text">获取ipa包中的图片资源: iOS Images Extractor</span></a></li></ol></div>
             
 
           </div>
