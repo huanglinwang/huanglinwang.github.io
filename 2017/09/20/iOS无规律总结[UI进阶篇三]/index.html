@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="截图保存图片123456789101112131415161718192021222324252627// 1. 获取图片需要开启图片的图形上下文! -&amp;gt; 可以生成一张图片!生成的图片更清晰! 缩放因子!size -&amp;gt; 图片上下文的大小!opaque -&amp;gt; 不透明,设置为 NO -&amp;gt; 透明!scale -&amp;gt; 缩放因子!	UIGraphicsBeginImageCont">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS无规律总结[UI进阶篇三]">
+<meta property="og:url" content="http://yoursite.com/2017/09/20/iOS无规律总结[UI进阶篇三]/index.html">
+<meta property="og:site_name" content="LinWang&#39;s Blog">
+<meta property="og:description" content="截图保存图片123456789101112131415161718192021222324252627// 1. 获取图片需要开启图片的图形上下文! -&amp;gt; 可以生成一张图片!生成的图片更清晰! 缩放因子!size -&amp;gt; 图片上下文的大小!opaque -&amp;gt; 不透明,设置为 NO -&amp;gt; 透明!scale -&amp;gt; 缩放因子!	UIGraphicsBeginImageCont">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-19T12:28:59.741Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS无规律总结[UI进阶篇三]">
+<meta name="twitter:description" content="截图保存图片123456789101112131415161718192021222324252627// 1. 获取图片需要开启图片的图形上下文! -&amp;gt; 可以生成一张图片!生成的图片更清晰! 缩放因子!size -&amp;gt; 图片上下文的大小!opaque -&amp;gt; 不透明,设置为 NO -&amp;gt; 透明!scale -&amp;gt; 缩放因子!	UIGraphicsBeginImageCont">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/20/iOS无规律总结[UI进阶篇三]/"/>
+
+
+
+
+
+  <title>iOS无规律总结[UI进阶篇三] | LinWang's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LinWang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/20/iOS无规律总结[UI进阶篇三]/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lin Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/icon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LinWang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS无规律总结[UI进阶篇三]</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-20T00:00:00+08:00">
+                2017-09-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/UI技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">UI技巧</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="截图保存图片"><a href="#截图保存图片" class="headerlink" title="截图保存图片"></a>截图保存图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">// 1. 获取图片</span><br><span class="line">需要开启图片的图形上下文! -&gt; 可以生成一张图片!</span><br><span class="line">生成的图片更清晰! 缩放因子!</span><br><span class="line">size -&gt; 图片上下文的大小!</span><br><span class="line">opaque -&gt; 不透明,设置为 NO -&gt; 透明!</span><br><span class="line">scale -&gt; 缩放因子!</span><br><span class="line">	UIGraphicsBeginImageContextWithOptions(self.bounds.size, YES, 0);    </span><br><span class="line">	</span><br><span class="line">Hierarchy 层次结构!</span><br><span class="line">将当前视图的层次结构渲染到上下文中!</span><br><span class="line">updates -&gt; 是否更新? -&gt; tableView在滚动的过程,截图!保证不会有不清晰的情况!	</span><br><span class="line">    [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:YES];    </span><br><span class="line">    </span><br><span class="line">获取图片</span><br><span class="line">    UIImage *result = UIGraphicsGetImageFromCurrentImageContext();    </span><br><span class="line">关闭图形上下文,一定要关闭</span><br><span class="line">    UIGraphicsEndImageContext();    </span><br><span class="line"></span><br><span class="line">// 2. 保存到相册</span><br><span class="line">    UIImageWriteToSavedPhotosAlbum(result, self, @selector(image:didFinishSavingWithError:contextInfo:), @&quot;图片名称&quot;);</span><br><span class="line">    </span><br><span class="line">// 3. 保存图片结束后系统会自动调用的方法</span><br><span class="line">- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo &#123;</span><br><span class="line">    NSLog(@&quot;图片保存成功&quot;);</span><br><span class="line">&#125;   </span><br><span class="line">// 4. info.plist文件中添加</span><br><span class="line">NSPhotoLibraryUsageDescription 提示字段否则不合法会崩溃</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="图形绘制-实战"><a href="#图形绘制-实战" class="headerlink" title="图形绘制[实战]"></a>图形绘制[实战]</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1. 柱状图📊</span><br><span class="line">	思路:在于如何求出柱状图的左上角坐标以及柱状图的宽度</span><br><span class="line">	然后进行贝塞尔绘制即可</span><br><span class="line">2. 饼状图</span><br><span class="line">	思路:在于如何求出开始和结束的角度</span><br><span class="line">	然后进行贝塞尔绘制即可</span><br><span class="line">	记得向圆心画线保证生成扇形</span><br><span class="line">	[path addLineToPoint:center];</span><br><span class="line">3. 进度饼状图</span><br><span class="line">	思路:根据进度获取到开始和结束的角度</span><br><span class="line">	将弧形起点向圆心连线！</span><br><span class="line">	[path closePath];</span><br></pre></td></tr></table></figure>
+<h3 id="自定义属性"><a href="#自定义属性" class="headerlink" title="自定义属性"></a>自定义属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">IB_DESIGNABLE</span><br><span class="line">// 让视图可以在storyboard文件中进行编辑</span><br><span class="line"></span><br><span class="line">// IBInspectable 可以保证当前属性可以在storyboard中进行编辑![需要先添加,然后保证keyPath和属性一致Type类型正确]</span><br><span class="line">@property (nonatomic, strong) IBInspectable UIColor *lineColor;</span><br></pre></td></tr></table></figure>
+<h3 id="手势解锁思路"><a href="#手势解锁思路" class="headerlink" title="手势解锁思路"></a>手势解锁思路</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">1. 界面布局,九宫格布局</span><br><span class="line">	// 宽、高</span><br><span class="line">    CGFloat btnW = 74;</span><br><span class="line">    CGFloat btnH = 74;</span><br><span class="line">    int colums = 3;//固定列数</span><br><span class="line">    // 间距</span><br><span class="line">    CGFloat margin = (self.bounds.size.width - colums * btnW) / 2;</span><br><span class="line">    int i = 0;</span><br><span class="line">    for (UIButton *btn in self.subviews) &#123;</span><br><span class="line">        // 1.计算行号、列号</span><br><span class="line">        int row = i / colums;</span><br><span class="line">        int col = i % colums;</span><br><span class="line">        // 2.计算按钮的x</span><br><span class="line">        CGFloat btnX = col * (btnW + margin);</span><br><span class="line">        CGFloat btnY = row * (btnH + margin);</span><br><span class="line">        // 3.设置按钮的frame</span><br><span class="line">        btn.frame = CGRectMake(btnX, btnY, btnW, btnH);</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">2. 添加长按手势识别器</span><br><span class="line">3. 获取触摸点,判断这个触摸点是哪个按钮上面的.如果在就将按钮保存到一个数组中,需要判断不要让按钮重复添加</span><br><span class="line">// 判断点是不是在一个范围内</span><br><span class="line">CGRectContainsPoint(CGRect, CGPoint)</span><br><span class="line">4. 绘制.以第一个按钮的中心为起始点,其他按钮的中心点为点进行画线,最后一根线根据当前的触摸点绘制</span><br><span class="line">5. 手势结束,根据Button的tag.拼接密码进行验证.</span><br><span class="line">6. 第一次验证,进行偏好设置进行存储</span><br><span class="line">7. 验证成功过,切换控制器,提示欢迎语</span><br><span class="line">8. 验证失败让View视图,按钮恢复默认状态.手势数组中的按钮移除,重新绘制</span><br></pre></td></tr></table></figure>
+<h3 id="视图创建两种方法"><a href="#视图创建两种方法" class="headerlink" title="视图创建两种方法"></a>视图创建两种方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">如果视图是通过代码 alloc + init的形式创建的</span><br><span class="line">     - (instancetype)init</span><br><span class="line">     &#123;</span><br><span class="line">     	self = [super init];</span><br><span class="line">     		if (self) &#123;</span><br><span class="line">     	&#125;</span><br><span class="line">     	return self;</span><br><span class="line">     &#125;</span><br><span class="line">     </span><br><span class="line">     - (instancetype)initWithFrame:(CGRect)frame</span><br><span class="line">     &#123;</span><br><span class="line">     	self = [super initWithFrame:frame];</span><br><span class="line">     		if (self) &#123;</span><br><span class="line">     	&#125;</span><br><span class="line">     	return self;</span><br><span class="line">     &#125;</span><br><span class="line">如果视图是通过storyboard关联的哪个视图,</span><br><span class="line">或者是xib文件中的视图,执行下面两个方法!     </span><br><span class="line">     - (instancetype)initWithCoder:(NSCoder *)coder</span><br><span class="line">     &#123;</span><br><span class="line">     	self = [super initWithCoder:coder];</span><br><span class="line">     		if (self) &#123;</span><br><span class="line">     	&#125;</span><br><span class="line">     	return self;</span><br><span class="line">     &#125;</span><br><span class="line">     </span><br><span class="line">     // awake完全唤醒 -&gt; 可以保证类里面属性与文件中的控件的连线,生效!</span><br><span class="line">     - (void)awakeFromNib &#123;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="图形上下文的其他操作"><a href="#图形上下文的其他操作" class="headerlink" title="图形上下文的其他操作"></a>图形上下文的其他操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">矩阵操作</span><br><span class="line">就是这些咯.对上下文进行,旋转,缩放,平移等.</span><br><span class="line">1.旋转</span><br><span class="line">	// — 旋转  </span><br><span class="line">	CGContextRotateCTM(txt, M_PI_4/2);</span><br><span class="line">		以左上角为轴！</span><br><span class="line">2.缩放</span><br><span class="line">	// — 缩放</span><br><span class="line">	CGContextScaleCTM(txt, 0.5, 0.5);</span><br><span class="line">		以左上角为轴！</span><br><span class="line">3.平移</span><br><span class="line">	// — 平移</span><br><span class="line">	CGContextTranslateCTM(txt, 20, 50);</span><br><span class="line">		水平和垂直方向的移动！</span><br><span class="line">		</span><br><span class="line">栈操作</span><br><span class="line">与矩阵操作配合使用！</span><br><span class="line">说白了就是压栈,然后出栈.那么还是原来的上下文.你可以继续进操作了又</span><br><span class="line">1.在执行矩阵操作前，先保存一份到图形上下文的[栈]中</span><br><span class="line">	栈操作 -&gt; 执行矩阵操作之前先保存</span><br><span class="line">	CGContextSaveGState(txt);</span><br><span class="line">2.在下次需要使用默认状态的时候，[出栈]操作就可以恢复之前保存的状态</span><br><span class="line">	栈操作 -&gt; 恢复状态</span><br><span class="line">	CGContextRestoreGState(txt);	</span><br><span class="line">	</span><br><span class="line">裁剪</span><br><span class="line">    //1.画圆</span><br><span class="line">  	 CGContextAddEllipseInRect(ctx,CGRectMake(100,100,50,50));</span><br><span class="line">    //2.裁剪</span><br><span class="line">    CGContextClip(ctx);</span><br><span class="line">    //3.显示图片</span><br><span class="line">    UIImage *image = [UIImage imageNamed:@&quot;me&quot;];</span><br><span class="line">    [image drawAtPoint:CGPointMake(100,100)];</span><br><span class="line">    CGContextFillPath(ctx);</span><br></pre></td></tr></table></figure>
+<h3 id="图片三维透视效果"><a href="#图片三维透视效果" class="headerlink" title="图片三维透视效果"></a>图片三维透视效果</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 1.单位矩阵</span><br><span class="line">CATransform3D transform = CATransform3DIdentity;</span><br><span class="line">// 1.2 增加透视效果</span><br><span class="line">// m34 参数可以实现透视效果！</span><br><span class="line">transform.m34 = -1.0/500;</span><br><span class="line">// 2.旋转60度 x,y,z轴分别乘以60度</span><br><span class="line">transform = CATransform3DRotate(transform, M_PI / 3, 0, 1, 0);</span><br><span class="line">// 3.修改iv</span><br><span class="line">imageView.layer.transform = transform;</span><br></pre></td></tr></table></figure>
+<h3 id="CALayer"><a href="#CALayer" class="headerlink" title="CALayer"></a>CALayer</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">1.手动创建calayer</span><br><span class="line">    // 1.创建</span><br><span class="line">    CALayer *redL = [CALayer layer];</span><br><span class="line">    // 2.设置大小</span><br><span class="line">    redL.bounds = CGRectMake(0, 0, 100, 100);</span><br><span class="line">    // 3.设置位置 -&gt; 不是center! position位置! 我们给视图设置的center!最终是交给了layer的position的!</span><br><span class="line">    redL.position = CGPointMake(150, 180);</span><br><span class="line">    // 4.背景 -&gt; 需要转为CGColorRef类型的颜色!</span><br><span class="line">    redL.backgroundColor = [UIColor redColor].CGColor;</span><br><span class="line">    // 5.添加</span><br><span class="line">    [self.view.layer addSublayer:redL];</span><br><span class="line">    </span><br><span class="line">属性</span><br><span class="line">// MARK: - 1.边框 -&gt; 向里面走!</span><br><span class="line">    _redLayer.borderColor = [UIColor yellowColor].CGColor;</span><br><span class="line">    _redLayer.borderWidth = 10;</span><br><span class="line">    </span><br><span class="line">// MARK: - 2.阴影 -&gt; shadow</span><br><span class="line">    // 阴影默认会向上偏移3个点! offset</span><br><span class="line">    _redLayer.shadowOpacity = 1.0;</span><br><span class="line">    // 阴影的颜色</span><br><span class="line">    _redLayer.shadowColor = [UIColor blueColor].CGColor;       </span><br><span class="line">	// 阴影的偏移[基于原来的位置]</span><br><span class="line">    _redLayer.shadowOffset = CGSizeMake(100, 100);</span><br><span class="line">    // 阴影半径</span><br><span class="line">    _redLayer.shadowRadius = 50;</span><br><span class="line">    // 阴影的形状可以指定为贝塞尔曲线</span><br><span class="line">    _redLayer.shadowPath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, 200, 100)].CGPath;</span><br><span class="line">    </span><br><span class="line">// MARK: - 3.内容</span><br><span class="line">// 还可以直接设置背景图片!</span><br><span class="line">	_redLayer.contents = (__bridge id)[UIImage imageNamed:@&quot;name&quot;].CGImage;    </span><br><span class="line"></span><br><span class="line">// MARK: - 4.圆角</span><br><span class="line">	_redLayer.cornerRadius = 20;	</span><br><span class="line">	_redLayer.masksToBounds = YES;	</span><br><span class="line">	masksToBounds 这个方法会将bounds外面视图都切掉.看不见所有的效果[比如:阴影]</span><br><span class="line"></span><br><span class="line">layer的transform属性!</span><br><span class="line">	 参数1 自己的transform</span><br><span class="line">     参数2 旋转的角度</span><br><span class="line">     参数 3/4/5 代表在对应轴上的值! </span><br><span class="line">     -&gt; 有它们确定一个点!点向圆心连线,组成对应的旋转的轴!</span><br><span class="line">	_redLayer.transform = CATransform3DRotate(_redLayer.transform, M_PI_4, 0, 0, 1)</span><br><span class="line">	// sx sy, sz 代表的是,在每个轴上缩放的比例!</span><br><span class="line">    _redLayer.transform = CATransform3DScale(_redLayer.transform, 0.6, 0.6, 1);    </span><br><span class="line">    // 平移</span><br><span class="line">    _redLayer.transform = CATransform3DTranslate(_redLayer.transform, 0, 0, 100);</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">layer 的隐式动画    </span><br><span class="line">    // 1.开启</span><br><span class="line">    [CATransaction begin];</span><br><span class="line">    // 2.设置关闭 设置为YES,可以关闭隐式动画！[流程度和渐变的效果]</span><br><span class="line">    [CATransaction setDisableActions:NO];</span><br><span class="line">    // 隐式动画默认的时长 0.25s!</span><br><span class="line">    // 3.设置动画时间</span><br><span class="line">    [CATransaction setAnimationDuration:1];</span><br><span class="line">    // 4.设置动画完成之后需要执行的操作</span><br><span class="line">    // 动画结束后,会执行block中的代码!</span><br><span class="line">    [CATransaction setCompletionBlock:^&#123;</span><br><span class="line">        NSLog(@&quot;动画结束了&quot;);</span><br><span class="line">    &#125;];</span><br><span class="line">    // 5.设置时间曲线[线性的] touchMove的时候流畅一些</span><br><span class="line">    [CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear]];</span><br><span class="line">    // 6. 可以修改layer的属性.transform,position等</span><br><span class="line">    // 7. 提交动画</span><br><span class="line">    [CATransaction commit];    </span><br><span class="line">    </span><br><span class="line">在修改[手动创建的layer]的时候,有些属性默认是有动画效果的! 注释里面带着animatable! 在修改的时候就有动画!</span><br><span class="line">这些属性被称为可动画属性! </span><br><span class="line">在修改rootLayer[视图里面默认带的layer属性],在修改的时候是没有动画效果的!</span><br></pre></td></tr></table></figure>
+<h3 id="获取系统当前的时间"><a href="#获取系统当前的时间" class="headerlink" title="获取系统当前的时间"></a>获取系统当前的时间</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 1.创建日历对象  Calendar 日历!</span><br><span class="line">NSCalendar *calendar = [NSCalendar currentCalendar];</span><br><span class="line">// 2.获取时间</span><br><span class="line">NSInteger second = [calendar component:NSCalendarUnitSecond fromDate:[NSDate date]];</span><br></pre></td></tr></table></figure>
+<h3 id="CALayer的Position和AnchorPoint"><a href="#CALayer的Position和AnchorPoint" class="headerlink" title="CALayer的Position和AnchorPoint"></a>CALayer的Position和AnchorPoint</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">position -&gt; 位置!相对于父layer来说的一个位置!默认是中心点</span><br><span class="line">anchorPoint -&gt; 锚点,定位点!取值范围 0 ~ 1;锚点决定了layer身上的哪个位置,停在了position!</span><br><span class="line">如果修改了锚点,将来旋转的轴,就变了! -&gt; 参考秒针的效果!</span><br><span class="line"></span><br><span class="line">将自己身上的一个点[锚点]放到position[位置]上.</span><br></pre></td></tr></table></figure>
+<h3 id="CADisplayLink-和-NSTimer"><a href="#CADisplayLink-和-NSTimer" class="headerlink" title="CADisplayLink 和 NSTimer"></a>CADisplayLink 和 NSTimer</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">    [NSTimer scheduledTimerWithTimeInterval:时间间隔 target:对象 selector:@selector(对象调用的方法) userInfo:nil repeats:是否重复];</span><br><span class="line"></span><br><span class="line">    CADisplayLink *link =[CADisplayLink displayLinkWithTarget:对象 selector:@selector(对象调用的方法)];</span><br><span class="line">    [link addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];</span><br><span class="line">    </span><br><span class="line">// MARK: - 1 NSTimer 和 CADisplayLink 对比</span><br><span class="line">    // 两者都是定时器,都可以执行刷新操作!</span><br><span class="line">    </span><br><span class="line">// 不同之处!</span><br><span class="line">    - timer 可以不用添加到运行循环就可以执行!</span><br><span class="line">    - 可以指定时间间隔进行刷新! 精度稍微低一点!</span><br><span class="line">    - tolarance -&gt; 容忍</span><br><span class="line">    系统如果比较繁忙,timer的刷新可以缓缓!    </span><br><span class="line">	- link 必须添加到运行循环!</span><br><span class="line">    - link 刷新是跟着屏幕的刷新而刷新! 精确度更高!    </span><br><span class="line">// 如何选择?</span><br><span class="line">    99% 的情况都是使用timer!    </span><br><span class="line">    如果对精确度要求比较高,那可以用link!</span><br><span class="line"></span><br><span class="line">定时器的销毁</span><br><span class="line">如果是在UIView中设置的定时器可以在willMoveToWindow里面去销毁!</span><br></pre></td></tr></table></figure>
+<h3 id="核心动画"><a href="#核心动画" class="headerlink" title="核心动画"></a>核心动画</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">核心动画框架 -&gt; QuartzCore!</span><br><span class="line">    CoreAnimation!</span><br><span class="line">    // 核心动画,都是在后台执行的!性能比较好!</span><br><span class="line">    // 所有的UI界面更新,都是在主线程执行!</span><br><span class="line">    // 不在主线程的可以理解成在后台!</span><br><span class="line">    </span><br><span class="line">    CAAnimation [基类,抽象类[鸡肋]] -&gt; 负责提供其他子类共有的属性和方法!不做具体行为!   </span><br><span class="line">        1. CAPropertyAnimation -&gt; 属性动画!</span><br><span class="line">            1.1 CABasicAnimation -&gt; 基本动画</span><br><span class="line">            1.2 CAKeyFrameAnimation -&gt; 关键帧动画        </span><br><span class="line">        2. CAAnimationGroup -&gt; 组动画        </span><br><span class="line">        3. CATransition -&gt; 转场动画!</span><br></pre></td></tr></table></figure>
+<h3 id="核心动画基本用法"><a href="#核心动画基本用法" class="headerlink" title="核心动画基本用法"></a>核心动画基本用法</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">创建动画对象</span><br><span class="line">设置属性 [关键值!]</span><br><span class="line">将动画对象添加给layer!</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 1.创建基本动画对象 Basic 基本</span></span><br><span class="line"><span class="comment">// keyPath: -&gt; 想要修改的layer的那个属性!写法,有样板!</span></span><br><span class="line"><span class="built_in">CABasicAnimation</span> *anim = [<span class="built_in">CABasicAnimation</span> animationWithKeyPath:<span class="string">@"position.y"</span>];</span><br><span class="line"><span class="comment">// 2.设置属性</span></span><br><span class="line">anim.toValue = @<span class="number">500</span>;</span><br><span class="line"><span class="comment">// MARK: - 结束后不要闪回去</span></span><br><span class="line">anim.removedOnCompletion = <span class="literal">NO</span>;</span><br><span class="line">anim.fillMode = kCAFillModeForwards;</span><br><span class="line"><span class="comment">// MARK: - 通过代理方法,修正按钮的位置!</span></span><br><span class="line">anim.delegate = <span class="keyword">self</span>;</span><br><span class="line"><span class="comment">// 3.添加</span></span><br><span class="line"><span class="comment">// key 就是一个标记! 键值对的意思! -&gt; 可以在移除的时候,精确找到该动画</span></span><br><span class="line"><span class="comment">// -&gt; 可以直接写nil! 系统会自动生成key,与动画配对!</span></span><br><span class="line">[_btn.layer addAnimation:anim forKey:<span class="literal">nil</span>];        </span><br><span class="line">    </span><br><span class="line">KeyPath:</span><br><span class="line"><span class="built_in">CGSize</span></span><br><span class="line">	widht height</span><br><span class="line"><span class="built_in">CGRect</span></span><br><span class="line">	origin origin.x origin.y size size.x size.y </span><br><span class="line">Transform</span><br><span class="line">	rotation scale translation .x.y.z</span><br><span class="line">Position    </span><br><span class="line">	x  y</span><br></pre></td></tr></table></figure>
+<h3 id="核心动画的特点"><a href="#核心动画的特点" class="headerlink" title="核心动画的特点"></a>核心动画的特点</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">    // 3.1 核心动画特点1</span><br><span class="line">    - 核心动画结束后,会闪回原来的位置!</span><br><span class="line">    - 核心动画的属性 removedOnCompletion = YES!动画结束后,从layer中移除!</span><br><span class="line">    </span><br><span class="line">// 如果不让其闪回去,有两种解决方式!</span><br><span class="line">    - 方式一</span><br><span class="line">    通过设置两个属性达到目的:</span><br><span class="line">        removedOnCompletion = NO!</span><br><span class="line">        fillMode = kCAFillModeForwards!</span><br><span class="line">    // 但是有个缺点:</span><br><span class="line">    需要用户交互的控件,它的真实位置没有改动!</span><br><span class="line">    核心动画在运动的时候,为了性能考虑,创建了[展现层,只能看的],在运动!真实的位置并没有发生改变!    </span><br><span class="line">    - 方式二</span><br><span class="line">    通过设置核心动画的代理,不需要遵守协议![代理方法是以NSObject的分类形式定义的!]</span><br><span class="line">    实现代理方法</span><br><span class="line">        - 核心动画开始!</span><br><span class="line">        - 核心动画结束!</span><br></pre></td></tr></table></figure>
+<h3 id="CAAnimationDelegate"><a href="#CAAnimationDelegate" class="headerlink" title="CAAnimationDelegate"></a>CAAnimationDelegate</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 核心动画开始</span><br><span class="line">- (void)animationDidStart:(CAAnimation *)anim &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 核心动画结束</span><br><span class="line">- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag &#123;</span><br><span class="line"></span><br><span class="line">在这个方法中:你可以在核心动画结束后,将控件的真实位置挪过来!</span><br><span class="line">将layer中的动画移除掉</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="核心动画-基本动画"><a href="#核心动画-基本动画" class="headerlink" title="核心动画[基本动画]"></a>核心动画[基本动画]</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> // 这个对象规定了属性值的在中间进行修改。</span><br><span class="line"> The objects defining the property values being interpolated between.</span><br><span class="line"> </span><br><span class="line"> // 所有的都是可选的，并且最多两个为非nil值。对象的类型应该跟动画属性的的类型向匹配【以CALayer.h文件中描述的原则为准】。支持的动画模式如下：</span><br><span class="line"> * All are optional, and no more than two should be non-nil. The object</span><br><span class="line"> * type should match the type of the property being animated (using the</span><br><span class="line"> * standard rules described in CALayer.h). The supported modes of</span><br><span class="line"> * animation are:</span><br><span class="line"> *</span><br><span class="line"> // fromValue和toValue不是nil，在fromValue和toValue之间进行改变</span><br><span class="line"> * - both `fromValue&apos; and `toValue&apos; non-nil. Interpolates between</span><br><span class="line"> * `fromValue&apos; and `toValue&apos;.</span><br><span class="line"> *</span><br><span class="line"> // fromValue和byValue不是nil，在fromValue和【fromValue加上byValue】之间进行改变</span><br><span class="line"> * - `fromValue&apos; and `byValue&apos; non-nil. Interpolates between</span><br><span class="line"> * `fromValue&apos; and `fromValue&apos; plus `byValue&apos;.</span><br><span class="line"> *</span><br><span class="line"> // byValue和toValue不是nil，在【toValue 减去 byValue】和toVlue之间进行改变</span><br><span class="line"> * - `byValue&apos; and `toValue&apos; non-nil. Interpolates between `toValue&apos;</span><br><span class="line"> * minus `byValue&apos; and `toValue&apos;.</span><br><span class="line"> *</span><br><span class="line"> // fromValue 不为nil，在fromValue和当前显示位置的值之间进行改变</span><br><span class="line"> * - `fromValue&apos; non-nil. Interpolates between `fromValue&apos; and the</span><br><span class="line"> * current presentation value of the property.</span><br><span class="line"> *</span><br><span class="line"> // toValue不是nil，在这个属性当前的值和toValue之间进行改变</span><br><span class="line"> * - `toValue&apos; non-nil. Interpolates between the layer&apos;s current value</span><br><span class="line"> * of the property in the render tree and `toValue&apos;.</span><br><span class="line"> *</span><br><span class="line"> // byValue不是nil，在这个属性当前的值和【当前值 加上 byValue】之间进行改变</span><br><span class="line"> * - `byValue&apos; non-nil. Interpolates between the layer&apos;s current value</span><br><span class="line"> * of the property in the render tree and that plus `byValue&apos;.</span><br><span class="line"> </span><br><span class="line"> */</span><br><span class="line"> </span><br><span class="line">// 修改位置</span><br><span class="line">- (void)demoPosition &#123;</span><br><span class="line">    // 1.创建基本动画</span><br><span class="line">    CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@&quot;position&quot;];</span><br><span class="line">    // 2.设置属性</span><br><span class="line">    // 从哪里  到 哪里</span><br><span class="line">    anim.fromValue = [NSValue valueWithCGPoint:CGPointMake(150, 180)];</span><br><span class="line">    anim.toValue = [NSValue valueWithCGPoint:CGPointMake(275, 567)];</span><br><span class="line">    // 动画结束后不要移除</span><br><span class="line">    anim.removedOnCompletion = NO;</span><br><span class="line">    // 向前填充-&gt; 留在最终的位置!</span><br><span class="line">    anim.fillMode = kCAFillModeForwards;</span><br><span class="line">    // 时长! -&gt; 默认0.25s</span><br><span class="line">    anim.duration = 1;</span><br><span class="line">    // 3.添加</span><br><span class="line">    [_redView.layer addAnimation:anim forKey:nil];</span><br><span class="line">&#125;</span><br><span class="line">// 旋转</span><br><span class="line">    // 1.创建对象</span><br><span class="line">    CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@&quot;transform.rotation.z&quot;];</span><br><span class="line">    // 2.设置属性</span><br><span class="line">    anim.toValue = @(M_PI * 2);</span><br><span class="line">    anim.duration = 2;</span><br><span class="line">    // 设置重复次数 CGFLOAT_MAX 无穷大</span><br><span class="line">    anim.repeatCount = CGFLOAT_MAX;</span><br><span class="line">    // 设置核心动画,不要移除!</span><br><span class="line">    // 如果程序进入后台,再次进来后,核心动画会被移除!不在动了</span><br><span class="line">    // 可以打开此属性,保证动画继续执行!</span><br><span class="line">    anim.removedOnCompletion = NO;</span><br><span class="line">    // 3.添加给layer</span><br><span class="line">    [_redView.layer addAnimation:anim forKey:nil];</span><br><span class="line">// 缩放    </span><br><span class="line">    // 1.创建对象</span><br><span class="line">    CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@&quot;transform.scale&quot;];</span><br><span class="line">    // 2.设置缩放</span><br><span class="line">    anim.toValue = @2;</span><br><span class="line">    anim.repeatCount = CGFLOAT_MAX;</span><br><span class="line">    // 3.添加给layer</span><br><span class="line">    [_redView.layer addAnimation:anim forKey:nil];</span><br></pre></td></tr></table></figure>
+<h3 id="核心动画-关键帧动画"><a href="#核心动画-关键帧动画" class="headerlink" title="核心动画[关键帧动画]"></a>核心动画[关键帧动画]</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">// 个人理解关键在于keyPath和values或者path</span><br><span class="line"></span><br><span class="line">// 抖动的效果</span><br><span class="line">    // 1.创建对象</span><br><span class="line">    CAKeyframeAnimation *anim = [CAKeyframeAnimation animationWithKeyPath:@&quot;transform.rotation.z&quot;];</span><br><span class="line">    // 2.设置抖动的角度</span><br><span class="line">    anim.values = @[@(-M_PI_4 * 0.3), @(M_PI_4 * 0.3), @(-M_PI_4 * 0.3)];</span><br><span class="line">    anim.duration = 0.5;</span><br><span class="line">    anim.repeatCount = CGFLOAT_MAX;</span><br><span class="line">    // 3.添加给layer</span><br><span class="line">    [_redView.layer addAnimation:anim forKey:nil];</span><br><span class="line">    </span><br><span class="line">// 沿着图形类型路径运动!</span><br><span class="line">    // 1.创建动画</span><br><span class="line">    CAKeyframeAnimation *anim = [CAKeyframeAnimation animationWithKeyPath:@&quot;position&quot;];</span><br><span class="line">    // 2.设置路径</span><br><span class="line">    anim.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(50, 100, 250, 300)].CGPath;</span><br><span class="line">    anim.repeatCount = CGFLOAT_MAX;</span><br><span class="line">    // 沿着路径运动,修改了时长,做完运动会停一下!又接着走!</span><br><span class="line">    anim.duration = 2;</span><br><span class="line">   </span><br><span class="line">    // 计算模式 -&gt; 强制运动,匀速进行,不管路径有多远!</span><br><span class="line">	// 设计计算模式可以避免停顿问题</span><br><span class="line">    // 使用 calculationMode 是控制关键帧动画时间的另一种方法</span><br><span class="line">    // 将其设置为 kCAAnimationPaced，让 Core Animation 向被驱动的对象施加一个恒定速度，不管路径的各个线段有多长</span><br><span class="line">    anim.calculationMode = kCAAnimationPaced;</span><br><span class="line">   </span><br><span class="line">    // 旋转模式 -&gt; 沿着路径,自行旋转 转的时候需要沿着路径的切线!进行转动!</span><br><span class="line">    anim.rotationMode = kCAAnimationRotateAuto;</span><br><span class="line">    // 3.添加</span><br><span class="line">    [_redView.layer addAnimation:anim forKey:nil];</span><br><span class="line">    </span><br><span class="line">// 沿着你指定的点的路径运动</span><br><span class="line">	// 1.创建关键帧动画</span><br><span class="line">    CAKeyframeAnimation *anim = [CAKeyframeAnimation animationWithKeyPath:@&quot;position&quot;];</span><br><span class="line">    // 2.设置属性</span><br><span class="line">    anim.values = @[</span><br><span class="line">                    [NSValue valueWithCGPoint:CGPointMake(self.view.center.x - 150, 100)],</span><br><span class="line">                    [NSValue valueWithCGPoint:self.view.center],</span><br><span class="line">                    [NSValue valueWithCGPoint:CGPointMake(self.view.center.x + 150, 100)],</span><br><span class="line">                    [NSValue valueWithCGPoint:CGPointMake(self.view.center.x - 150, 100)],</span><br><span class="line">                    ];</span><br><span class="line">    // 时间</span><br><span class="line">    anim.duration = 2;</span><br><span class="line">    // 3.添加给layer!</span><br><span class="line">    [_redView.layer addAnimation:anim forKey:nil];</span><br></pre></td></tr></table></figure>
+<h3 id="ShakeCell-摇一摇"><a href="#ShakeCell-摇一摇" class="headerlink" title="ShakeCell [摇一摇]"></a>ShakeCell [摇一摇]</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">思路:</span><br><span class="line">1. 先让collectionView停止滚动</span><br><span class="line">2. 获取可见的cell</span><br><span class="line">3. 给这些可见的cell,给每一个Cell添加抖动的动画</span><br><span class="line">4. 创建关键帧动画 KeyPath transform.rotation.z</span><br><span class="line">5. 设置关键值values</span><br><span class="line">6. 停止抖动.让collectionView可以滚动,每一个Cell移除layer动画</span><br></pre></td></tr></table></figure>
+<h3 id="核心动画-组动画"><a href="#核心动画-组动画" class="headerlink" title="核心动画[组动画]"></a>核心动画[组动画]</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">就是将动画放到一个数组中,让组动画来统一添加.所有的动画会同时执行.可以设置统一的时间等属性.</span><br><span class="line">将所有的动画都进行各自添加也可以实现同样的效果.[怎么方便怎么来]   </span><br><span class="line">    // 1.大小 -&gt; 基本动画修改大小</span><br><span class="line">    CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@&quot;transform.scale&quot;];</span><br><span class="line">    anim.toValue = @2;</span><br><span class="line">    </span><br><span class="line">    // 2.旋转 -&gt; 基本动画旋转</span><br><span class="line">    CABasicAnimation *anim2 = [CABasicAnimation animationWithKeyPath:@&quot;transform.rotation.z&quot;];</span><br><span class="line">    anim2.toValue = @(M_PI * 2);</span><br><span class="line">    </span><br><span class="line">    // 3.路径 -&gt; 关键帧动画</span><br><span class="line">    CAKeyframeAnimation *anim3 = [CAKeyframeAnimation animationWithKeyPath:@&quot;position&quot;];</span><br><span class="line">    anim3.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(100, 100, 250, 400)].CGPath;</span><br><span class="line">    anim3.calculationMode = kCAAnimationPaced;</span><br><span class="line">		</span><br><span class="line">	组动画</span><br><span class="line">    // 1.创建对象</span><br><span class="line">    CAAnimationGroup *group = [CAAnimationGroup animation];</span><br><span class="line">    // 2.设置属性</span><br><span class="line">    group.animations = @[anim, anim2, anim3];</span><br><span class="line">    group.duration = 2;</span><br><span class="line">    group.repeatCount = CGFLOAT_MAX;</span><br><span class="line">    // 3.添加给layer</span><br><span class="line">    [_redView.layer addAnimation:group forKey:nil];</span><br></pre></td></tr></table></figure>
+<h3 id="核心动画-转场动画"><a href="#核心动画-转场动画" class="headerlink" title="核心动画[转场动画]"></a>核心动画[转场动画]</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">转场动画</span><br><span class="line">    // 1.创建动画对象</span><br><span class="line">    CATransition *anim = [CATransition animation];</span><br><span class="line">    // 设置动画的形式,和方向!</span><br><span class="line">    anim.type = kCATransitionFade;</span><br><span class="line">    anim.subtype = kCATransitionFromBottom;</span><br><span class="line">    // 3.添加给layer</span><br><span class="line">    [view.layer addAnimation:anim forKey:nil];</span><br><span class="line">    </span><br><span class="line">通过UIView的类方法,也可以实现转场效果</span><br><span class="line">    //    参数1 要执行动画的视图</span><br><span class="line">    //    参数2 动画的时长</span><br><span class="line">    //    参数3 动画的选项</span><br><span class="line">    //    参数4 动画的内容-&gt; 执行动画的代码</span><br><span class="line">    //    参数5 动画结束后需要执行的操作</span><br><span class="line">    [UIView transitionWithView:view duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve animations:^&#123;</span><br><span class="line">        // 需要执行动画的代码</span><br><span class="line">        ((UIImageView *)recognizer.view).image = [UIImage imageNamed:imgName];</span><br><span class="line">    &#125; completion:nil];</span><br></pre></td></tr></table></figure>
+<h3 id="modal控制器"><a href="#modal控制器" class="headerlink" title="modal控制器"></a>modal控制器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// modal -&gt; 显示控制器 present!</span><br><span class="line">// dimiss -&gt; 销毁控制器! dismiss!    </span><br><span class="line">// 原则</span><br><span class="line">谁modal,谁就负责dismiss!</span><br></pre></td></tr></table></figure>
+<h3 id="alloc-init"><a href="#alloc-init" class="headerlink" title="alloc init"></a>alloc init</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">创建一个对象 alloc init 相当于下面这个方法中的两个参数为nil</span><br><span class="line">- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="自定义转场动画Dismiss"><a href="#自定义转场动画Dismiss" class="headerlink" title="自定义转场动画Dismiss"></a>自定义转场动画Dismiss</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">// 第一种利用手势加动画实现</span><br><span class="line">1. 首先控制器是present出来的</span><br><span class="line">2. modal的样式</span><br><span class="line">下面的方法或者在 init 方法中设置style</span><br><span class="line"></span><br><span class="line">- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil &#123;</span><br><span class="line">    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) &#123;</span><br><span class="line">        //显示的 style 如果不设置自定义Modal的背景是黑色的</span><br><span class="line">        self.modalPresentationStyle = UIModalPresentationCustom;</span><br><span class="line">    &#125;</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br><span class="line">3. 给控制器添加一个拖拽手势</span><br><span class="line">4. 获取拖拽的偏移量</span><br><span class="line">5. 根据偏移的距离计算角度</span><br><span class="line">6. 根据不同状态执行不同操作</span><br><span class="line">7. 修改控制器的layer的position和anchorPoint</span><br><span class="line"></span><br><span class="line">switch (recognizer.state) &#123;</span><br><span class="line">// 开始的时候修改锚点和position</span><br><span class="line">        case UIGestureRecognizerStateBegan:</span><br><span class="line">            self.view.layer.position = CGPointMake(size.width * 0.5, size.height * 1.5);</span><br><span class="line">            self.view.layer.anchorPoint = CGPointMake(0.5, 1.5);</span><br><span class="line"></span><br><span class="line">// 改变的时候进行旋转        </span><br><span class="line">        case UIGestureRecognizerStateChanged:</span><br><span class="line">            self.view.transform = CGAffineTransformMakeRotation(angle);</span><br><span class="line">            break;</span><br><span class="line"></span><br><span class="line">// 结束的时候判断角度的大小,来判断是否消失        </span><br><span class="line">        case UIGestureRecognizerStateEnded:</span><br><span class="line">            if (ABS(angle) &gt; 0.30) &#123;</span><br><span class="line">                [self dismissViewControllerAnimated:YES completion:nil];</span><br><span class="line">                break;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">// 失败的话就返回原来的位置,并将锚点和position还原            </span><br><span class="line">        case UIGestureRecognizerStateFailed:</span><br><span class="line">        case UIGestureRecognizerStateCancelled:</span><br><span class="line">        // 大括号的作用，限制其中代码块的作用域！</span><br><span class="line">        &#123;</span><br><span class="line">            [UIView animateWithDuration:0.25 animations:^&#123;</span><br><span class="line">                self.view.transform = CGAffineTransformIdentity;</span><br><span class="line">            &#125; completion:^(BOOL finished) &#123;</span><br><span class="line">                </span><br><span class="line">                self.view.layer.anchorPoint = CGPointMake(0.5, 0.5);</span><br><span class="line">                self.view.layer.position = CGPointMake(size.width * 0.5, size.height * 0.5);</span><br><span class="line">            &#125;];</span><br><span class="line">        &#125;</span><br><span class="line">            break;</span><br><span class="line">        default:</span><br><span class="line">            break;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="自定义转场动画modal"><a href="#自定义转场动画modal" class="headerlink" title="自定义转场动画modal"></a>自定义转场动画modal</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">1. 给控制器指定VC.transitioningDelegate = 对象</span><br><span class="line">2. 对象遵守UIViewControllerTransitioningDelegate协议</span><br><span class="line">3. 实现方法</span><br><span class="line">    // 谁负责实现动画的效果</span><br><span class="line">    - (nullable id &lt;UIViewControllerAnimatedTransitioning&gt;)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source &#123;</span><br><span class="line">    // presented  先要present出来的控制器!</span><br><span class="line">    // presenting 想要进行present动作的控制器!</span><br><span class="line">    // source     从哪里显示!源控制器!  presenting 和 source 大部分时候都是同一个对象!</span><br><span class="line">        return self;</span><br><span class="line">    &#125;</span><br><span class="line">4. 负责实现动画效果的对象要遵守UIViewControllerAnimatedTransitioning协议</span><br><span class="line">5. 实现方法</span><br><span class="line">// 动画时长</span><br><span class="line">	- (NSTimeInterval)transitionDuration:(id&lt;UIViewControllerContextTransitioning&gt;)transitionContext &#123;</span><br><span class="line">	    return 0.5;</span><br><span class="line">	&#125;    </span><br><span class="line">// 动画效果</span><br><span class="line">- (void)animateTransition:(id&lt;UIViewControllerContextTransitioning&gt;)transitionContext &#123;</span><br><span class="line">	    // 1.获取将要显示的控制器</span><br><span class="line">    UIViewController *toVc = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];</span><br><span class="line">    // 2.获取容器视图</span><br><span class="line">    UIView *containerView = [transitionContext containerView];</span><br><span class="line">    toVc.view.bounds = containerView.bounds;</span><br><span class="line">    // 3.添加视图</span><br><span class="line">    [containerView addSubview:toVc.view];</span><br><span class="line">    // 4.旋转</span><br><span class="line">    toVc.view.transform = CGAffineTransformMakeRotation(-M_PI_2);</span><br><span class="line">    // 5.修改初始点</span><br><span class="line">    CGSize size = toVc.view.bounds.size;</span><br><span class="line">    toVc.view.layer.anchorPoint = CGPointMake(0.5, 1.5);</span><br><span class="line">    toVc.view.layer.position = CGPointMake(size.width * 0.5, size.height * 1.5);</span><br><span class="line">    // 6.动画旋转出来</span><br><span class="line">    [UIView animateWithDuration:0.5 animations:^&#123;</span><br><span class="line">        toVc.view.transform = CGAffineTransformIdentity;</span><br><span class="line">    &#125; completion:^(BOOL finished) &#123;</span><br><span class="line">        toVc.view.layer.anchorPoint = CGPointMake(0.5, 0.5);</span><br><span class="line">        toVc.view.layer.position = CGPointMake(size.width * 0.5, size.height * 0.5);</span><br><span class="line">        [transitionContext completeTransition:YES];</span><br><span class="line">    &#125;];</span><br><span class="line">    动画结束后,一定要告诉系统,执行完毕! 否则系统会一直等待动画结束![等待的过程中用户交互被关闭了]</span><br><span class="line">	// [transitionContext completeTransition:YES];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="PCH-文件介绍"><a href="#PCH-文件介绍" class="headerlink" title="PCH 文件介绍"></a>PCH 文件介绍</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">	#ifndef PrefixHeader_pch</span><br><span class="line">    #define PrefixHeader_pch</span><br><span class="line"></span><br><span class="line">    // 1. 需要做屏蔽,如果不是oc的内容,就不要导入oc的头文件</span><br><span class="line">    #ifdef __OBJC__ // 屏蔽不是OC的文件!</span><br><span class="line">    2. 头文件</span><br><span class="line">    #import &quot;项目中需要的头文件.h&quot;</span><br><span class="line"></span><br><span class="line">    3. // MARK: - 打印调试的宏!</span><br><span class="line">    #ifdef DEBUG // 测试环境!</span><br><span class="line">    #define NSLog(fmt, ...) NSLog((@&quot;%s [Line %d] &quot; fmt), __FUNCTION__, __LINE__, ##__VA_ARGS__)</span><br><span class="line">    #else // 其他环境</span><br><span class="line">    #define NSLog(...) // 打印信息也是非常耗性能!</span><br><span class="line"></span><br><span class="line">    #endif</span><br><span class="line">    #endif</span><br><span class="line">    #endif</span><br><span class="line"></span><br><span class="line">作用:</span><br><span class="line">    - 存放公用的宏或者头文件!</span><br><span class="line">    - 每次程序在运行的时候,都会先把pch文件中的东西编译一遍!</span><br><span class="line">    </span><br><span class="line">    // pch文件在Xcode6以前,每次新建项目,都会默认带着一个pch头文件! 项目名称-PrefixHead.pch!</span><br><span class="line">    // Xcode 6以后,苹果就关掉了!创建的项目不再带着这个文件!</span><br><span class="line">    // 原因:速度太慢了!</span><br><span class="line">    // 但是公司里面都是会用这个文件的!        </span><br><span class="line"></span><br><span class="line">配置: 新建PCH文件的时候记得勾选项目的target</span><br><span class="line">在build Settings 的Prefix Header 中添加文件的路径</span><br><span class="line">根路径/项目名称/文件名称</span><br></pre></td></tr></table></figure>
+<h3 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">一、JOSN 简介</span><br><span class="line">    JSON 本质上，就是一个&quot;特殊格式&quot;的字符串</span><br><span class="line"></span><br><span class="line">    - JSON 是网络上用来传输数据使用最广泛的数据格式，没有之一</span><br><span class="line">    - JSON 出身草根，是 Javascript 的子集，专门负责描述数据格式</span><br><span class="line">    - Javascript 是做网页开发使用的一种&quot;脚本&quot;语言</span><br><span class="line">    - Javascript &amp; Java 没有任何关系！</span><br><span class="line"></span><br><span class="line">    参考网站：// http://www.w3cschool.cc</span><br><span class="line"></span><br><span class="line">二、JSON 语法规则</span><br><span class="line"></span><br><span class="line">    JSON 的语法格式和 OC 中的快速包装字典和数组的语法几乎一样！</span><br><span class="line"></span><br><span class="line">    - 数据以 key/value 值对表示</span><br><span class="line">    - 数据由逗号分隔</span><br><span class="line">    - 花括号保存对象</span><br><span class="line">    - 方括号保存数组</span><br><span class="line"></span><br><span class="line">三、JSON 值</span><br><span class="line"></span><br><span class="line">    - 数字（整数或浮点数）</span><br><span class="line">    - 字符串（在双引号中）</span><br><span class="line">    - 逻辑值（true 或 false）</span><br><span class="line">    - 数组（在方括号中）</span><br><span class="line">    - 对象（在花括号中）</span><br><span class="line">    - null</span><br><span class="line"></span><br><span class="line">四、序列化 &amp; 反序列化</span><br><span class="line"></span><br><span class="line">    - 序列化：在向服务器发送数据之前，将 NSArray / NSDictionary 转换成二进制的过程</span><br><span class="line">    - 反序列化：在从服务器接收到数据之后，将二进制数据转换成 NSArray / NSDictionary 的过程</span><br><span class="line"></span><br><span class="line">五、NSJSONSerialization 类</span><br><span class="line"></span><br><span class="line">    - 专门负责在 JSON 和 Foundation 对象直接转换的类</span><br><span class="line">    - 可以转换成 JSON 的 Foundation 对象需要具备以下条件：</span><br><span class="line">    - 顶级节点是 NSArray 或者 NSDictionary</span><br><span class="line">    - 所有的对象是 NSString, NSNumber, NSArray, NSDictionary 或者 NSNull</span><br><span class="line">    - 所有字典的 key 是 NSString</span><br><span class="line">    - NSNumber 不是空或者无穷大福</span><br></pre></td></tr></table></figure>
+<h3 id="JSON解析"><a href="#JSON解析" class="headerlink" title="JSON解析"></a>JSON解析</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 先通过URL或者网络请求什么的获取JOSN数据</span><br><span class="line">2. 将JSON数据转换成对应的字典或者数组类型</span><br><span class="line">3. 字典转模型,开始使用</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/10/iOS无规律总结[UI进阶篇一]/" rel="next" title="iOS无规律总结[UI进阶篇一]">
+                <i class="fa fa-chevron-left"></i> iOS无规律总结[UI进阶篇一]
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/icon.png"
+                alt="Lin Wang" />
+            
+              <p class="site-author-name" itemprop="name">Lin Wang</p>
+              <p class="site-description motion-element" itemprop="description">任何事情不会怕慢，怕的是踌躇不前。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#截图保存图片"><span class="nav-number">1.</span> <span class="nav-text">截图保存图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图形绘制-实战"><span class="nav-number">2.</span> <span class="nav-text">图形绘制[实战]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义属性"><span class="nav-number">3.</span> <span class="nav-text">自定义属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手势解锁思路"><span class="nav-number">4.</span> <span class="nav-text">手势解锁思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视图创建两种方法"><span class="nav-number">5.</span> <span class="nav-text">视图创建两种方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图形上下文的其他操作"><span class="nav-number">6.</span> <span class="nav-text">图形上下文的其他操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片三维透视效果"><span class="nav-number">7.</span> <span class="nav-text">图片三维透视效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CALayer"><span class="nav-number">8.</span> <span class="nav-text">CALayer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取系统当前的时间"><span class="nav-number">9.</span> <span class="nav-text">获取系统当前的时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CALayer的Position和AnchorPoint"><span class="nav-number">10.</span> <span class="nav-text">CALayer的Position和AnchorPoint</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CADisplayLink-和-NSTimer"><span class="nav-number">11.</span> <span class="nav-text">CADisplayLink 和 NSTimer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核心动画"><span class="nav-number">12.</span> <span class="nav-text">核心动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核心动画基本用法"><span class="nav-number">13.</span> <span class="nav-text">核心动画基本用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核心动画的特点"><span class="nav-number">14.</span> <span class="nav-text">核心动画的特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CAAnimationDelegate"><span class="nav-number">15.</span> <span class="nav-text">CAAnimationDelegate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核心动画-基本动画"><span class="nav-number">16.</span> <span class="nav-text">核心动画[基本动画]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核心动画-关键帧动画"><span class="nav-number">17.</span> <span class="nav-text">核心动画[关键帧动画]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ShakeCell-摇一摇"><span class="nav-number">18.</span> <span class="nav-text">ShakeCell [摇一摇]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核心动画-组动画"><span class="nav-number">19.</span> <span class="nav-text">核心动画[组动画]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#核心动画-转场动画"><span class="nav-number">20.</span> <span class="nav-text">核心动画[转场动画]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#modal控制器"><span class="nav-number">21.</span> <span class="nav-text">modal控制器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#alloc-init"><span class="nav-number">22.</span> <span class="nav-text">alloc init</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义转场动画Dismiss"><span class="nav-number">23.</span> <span class="nav-text">自定义转场动画Dismiss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义转场动画modal"><span class="nav-number">24.</span> <span class="nav-text">自定义转场动画modal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PCH-文件介绍"><span class="nav-number">25.</span> <span class="nav-text">PCH 文件介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON"><span class="nav-number">26.</span> <span class="nav-text">JSON</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON解析"><span class="nav-number">27.</span> <span class="nav-text">JSON解析</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lin Wang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">HuangLinWang</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

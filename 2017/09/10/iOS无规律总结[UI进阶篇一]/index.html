@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="图文混排富文本123456789101112131415161718192021222324252627282930313233例子:使用图像和文本生成上下排列的属性文本/// @param image      图像/// @param imageWH    图像宽高/// @param title      标题文字/// @param fontSize   标题字体大小/// @param">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS无规律总结[UI进阶篇一]">
+<meta property="og:url" content="http://yoursite.com/2017/09/10/iOS无规律总结[UI进阶篇一]/index.html">
+<meta property="og:site_name" content="LinWang&#39;s Blog">
+<meta property="og:description" content="图文混排富文本123456789101112131415161718192021222324252627282930313233例子:使用图像和文本生成上下排列的属性文本/// @param image      图像/// @param imageWH    图像宽高/// @param title      标题文字/// @param fontSize   标题字体大小/// @param">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-19T12:27:42.829Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS无规律总结[UI进阶篇一]">
+<meta name="twitter:description" content="图文混排富文本123456789101112131415161718192021222324252627282930313233例子:使用图像和文本生成上下排列的属性文本/// @param image      图像/// @param imageWH    图像宽高/// @param title      标题文字/// @param fontSize   标题字体大小/// @param">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/10/iOS无规律总结[UI进阶篇一]/"/>
+
+
+
+
+
+  <title>iOS无规律总结[UI进阶篇一] | LinWang's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LinWang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/10/iOS无规律总结[UI进阶篇一]/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lin Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/icon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LinWang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS无规律总结[UI进阶篇一]</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-10T00:00:00+08:00">
+                2017-09-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/UI技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">UI技巧</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="图文混排富文本"><a href="#图文混排富文本" class="headerlink" title="图文混排富文本"></a>图文混排富文本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">例子:使用图像和文本生成上下排列的属性文本</span><br><span class="line">/// @param image      图像</span><br><span class="line">/// @param imageWH    图像宽高</span><br><span class="line">/// @param title      标题文字</span><br><span class="line">/// @param fontSize   标题字体大小</span><br><span class="line">/// @param titleColor 标题颜色</span><br><span class="line">/// @param spacing    图像和标题间距</span><br><span class="line">+ (instancetype)imageTextWithImage:(UIImage *)image imageWH:(CGFloat)imageWH title:(NSString *)title fontSize:(CGFloat)fontSize titleColor:(UIColor *)titleColor spacing:(CGFloat)spacing &#123;</span><br><span class="line">    </span><br><span class="line">    // 文本字典</span><br><span class="line">    NSDictionary *titleDict = @&#123;NSFontAttributeName: [UIFont systemFontOfSize:fontSize],</span><br><span class="line">                                NSForegroundColorAttributeName: titleColor&#125;;</span><br><span class="line">    NSDictionary *spacingDict = @&#123;NSFontAttributeName: [UIFont systemFontOfSize:spacing]&#125;;</span><br><span class="line">    </span><br><span class="line">    // 图片文本</span><br><span class="line">    NSTextAttachment *attachment = [[NSTextAttachment alloc] init];</span><br><span class="line">    attachment.image = image;</span><br><span class="line">    attachment.bounds = CGRectMake(0, 0, imageWH, imageWH);</span><br><span class="line">    NSAttributedString *imageText = [NSAttributedString attributedStringWithAttachment:attachment];</span><br><span class="line">    </span><br><span class="line">    // 换行文本</span><br><span class="line">    NSAttributedString *lineText = [[NSAttributedString alloc] initWithString:@&quot;\n\n&quot; attributes:spacingDict];</span><br><span class="line">    </span><br><span class="line">    // 按钮文字</span><br><span class="line">    NSAttributedString *text = [[NSAttributedString alloc] initWithString:title attributes:titleDict];</span><br><span class="line">    </span><br><span class="line">    // 合并文字</span><br><span class="line">    NSMutableAttributedString *attM = [[NSMutableAttributedString alloc] initWithAttributedString:imageText];</span><br><span class="line">    [attM appendAttributedString:lineText];</span><br><span class="line">    [attM appendAttributedString:text];</span><br><span class="line">    </span><br><span class="line">    return attM.copy;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="毛玻璃效果"><a href="#毛玻璃效果" class="headerlink" title="毛玻璃效果"></a>毛玻璃效果</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];</span><br><span class="line">//毛玻璃效果</span><br><span class="line">UIVisualEffectView *blurView = [[UIVisualEffectView alloc]initWithEffect:effect];</span><br><span class="line">// 设置frame</span><br><span class="line">// 添加到图片上</span><br></pre></td></tr></table></figure>
+<h3 id="UITextField"><a href="#UITextField" class="headerlink" title="UITextField"></a>UITextField</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">//设置textfield的边框</span><br><span class="line">textField.borderStyle = UITextBorderStyleRoundedRect;</span><br><span class="line">可选属性：</span><br><span class="line">      UITextBorderStyleNone,无边框</span><br><span class="line">      UITextBorderStyleLine,有边框</span><br><span class="line">      UITextBorderStyleBezel,有边框和阴影</span><br><span class="line">      UITextBorderStyleRoundedRect圆角</span><br><span class="line">密文输入      </span><br><span class="line">　	 textField.secureTextEntry = YES;</span><br><span class="line">提示文字　　</span><br><span class="line">	textField.placeholder = @&quot;请输入&quot;;　　 </span><br><span class="line">再次编辑时是否清空之前内容；默认NO</span><br><span class="line">　	 textField.clearsOnBeginEditing = YES      </span><br><span class="line">对齐方式</span><br><span class="line">	textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter </span><br><span class="line"></span><br><span class="line">可选属性：</span><br><span class="line">UIControlContentVerticalAlignmentCenter  居中对齐</span><br><span class="line">UIControlContentVerticalAlignmentTop    顶部对齐，默认是顶部对齐</span><br><span class="line">UIControlContentVerticalAlignmentBottom 底部对齐</span><br><span class="line">UIControlContentVerticalAlignmentFill    完全填充　　</span><br><span class="line"></span><br><span class="line">设置return键</span><br><span class="line">	textField.returnKeyType = UIReturnKeyDefault</span><br><span class="line"></span><br><span class="line">点击键盘上Return按钮时候调用</span><br><span class="line">- (BOOL)textFieldShouldReturn:(UITextField *)textField</span><br></pre></td></tr></table></figure>
+<h3 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">condition 条件</span><br><span class="line">desc 错误时的描述！ -&gt; 写字符串！</span><br><span class="line">NSAssert(condition, desc, ...)</span><br></pre></td></tr></table></figure>
+<h3 id="UISegmentedControl"><a href="#UISegmentedControl" class="headerlink" title="UISegmentedControl"></a>UISegmentedControl</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 初始化</span><br><span class="line">UISegmentedControl *segment = [[UISegmentedControl alloc] initWithItems:@[@&quot;分组&quot;, @&quot;全部&quot;]];</span><br><span class="line"></span><br><span class="line">// 设置宽度</span><br><span class="line">[segment setWidth:宽度 forSegmentAtIndex:下标];</span><br><span class="line"></span><br><span class="line">// 设置选中</span><br><span class="line">[segment setSelectedSegmentIndex:0];</span><br><span class="line"></span><br><span class="line">// 选中的下标.可以再通知中使用</span><br><span class="line">sender.selectedSegmentIndex</span><br></pre></td></tr></table></figure>
+<h3 id="心得体会-lt-欢迎大神指导-gt"><a href="#心得体会-lt-欢迎大神指导-gt" class="headerlink" title="心得体会&lt;欢迎大神指导&gt;"></a>心得体会&lt;欢迎大神指导&gt;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在搭建基本的框架的时候,可以创建一个Base控制器,里面写一些公用的方法和属性.</span><br><span class="line">也可以创建一个基于Base控制器的事件Function控制器,用来写一些公用的方法.</span><br><span class="line">不一定要让每一个控制器都用到.但是可以减少一些代码的书写.</span><br></pre></td></tr></table></figure>
+<h3 id="LoadView"><a href="#LoadView" class="headerlink" title="LoadView"></a>LoadView</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">注意: </span><br><span class="line">1. 在loadView方法中最好不要调用self.view，如果视图没有被创建和设置，会造成死循环！</span><br><span class="line">2. 如果控制器的视图是在storyboard或xib文件中创建的，不要重写loadView方法！</span><br><span class="line">3. 在loadView方法中不要调用super</span><br><span class="line">4. 在loadView方法中慎用self.view</span><br><span class="line">5. super的调用,如果放到最下面!我们自己写的都白写了!</span><br><span class="line">例子:</span><br><span class="line">- (void)loadView &#123;    </span><br><span class="line">    [super loadView]; // self.view = [[UIView alloc]init];    </span><br><span class="line">    self.view = [[UITableView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];    </span><br><span class="line">    UIButton *btn = [UIButton buttonWithType:UIButtonTypeContactAdd];</span><br><span class="line">    [self.view addSubview:btn];    </span><br><span class="line">&#125;</span><br><span class="line">官方解释:</span><br><span class="line">You should never call this method directly.</span><br><span class="line"> // 禁止直接调用此方法</span><br><span class="line"> The view controller calls this method when its view property is requested but is currently nil.</span><br><span class="line"> // 如果用到了view属性，当时view时nil的时候，系统会自动调用此方法！</span><br><span class="line"> </span><br><span class="line"> This method loads or creates a view and assigns it to the view property.</span><br><span class="line"> // 这个方法负责 加载 或者 创建一个视图并且把它设置给控制器的view属性！</span><br><span class="line"> </span><br><span class="line"> If the view controller has an associated nib file, this method loads the view from the nib file.</span><br><span class="line"> // 如果这个控制器已经绑定了xib文件，这个方法就会从xib文件中加载视图！</span><br><span class="line"> </span><br><span class="line"> A view controller has an associated nib file if the nibName property returns a non-nil value, which occurs if the view controller was instantiated from a storyboard, if you explicitly assigned it a nib file using the initWithNibName:bundle: method, or if iOS finds a nib file in the app bundle with a name based on the view controller&apos;s class name.</span><br><span class="line"> // 如果关联了文件，并且真实有效，当控制器是从stroyboard文件中加载时会发生！</span><br><span class="line"> // 如果通过initWithNibName方法绑定了文件，获取系统找了一个基于此控制器类名的文件，都会加载其中的视图！</span><br><span class="line"> </span><br><span class="line"> If the view controller does not have an associated nib file, this method creates a plain UIView object instead.</span><br><span class="line"> // 如果没有关联文件，则直接创建一个普通的UIView对象代替</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> If you use Interface Builder to create your views and initialize the view controller, you must not override this method.</span><br><span class="line"> // 如果使用 IB 去创建视图和以及实例化控制器，禁止重写此方法！</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> You can override this method in order to create your views manually.</span><br><span class="line"> // 如果要手动的创建视图，可以重写此方法！</span><br><span class="line"> </span><br><span class="line"> If you choose to do so, assign the root view of your view hierarchy【层级结构】 to the view property.</span><br><span class="line"> // 如果这么做了，将创建的视图设置给控制器的view属性！</span><br><span class="line"> </span><br><span class="line"> The views you create should be unique instances and should not be shared with any other view controller object.</span><br><span class="line"> // 创建view对象应该是独一无二的，不能和其他控制器共享！</span><br><span class="line"> </span><br><span class="line"> Your custom implementation of this method should not call super.</span><br><span class="line"> // 自己重写的时候不要调用 super</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"> If you want to perform any additional initialization of your views, do so in the viewDidLoad method.</span><br><span class="line"> // 如果要实现添加其他的视图操作，可以在viewDidLoad方法中进行！</span><br></pre></td></tr></table></figure>
+<h3 id="视图的生命周期"><a href="#视图的生命周期" class="headerlink" title="视图的生命周期"></a>视图的生命周期</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line">// 视图加载完成</span><br><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    NSLog(@&quot;%@ ---&gt; %s&quot;, self.class, __func__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 视图将要显示</span><br><span class="line">- (void)viewWillAppear:(BOOL)animated &#123;</span><br><span class="line">    </span><br><span class="line">    [super viewWillAppear:animated];</span><br><span class="line">    </span><br><span class="line">    NSLog(@&quot;%@ ---&gt; %s&quot;, self.class, __func__);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 视图已经显示</span><br><span class="line">- (void)viewDidAppear:(BOOL)animated &#123;</span><br><span class="line">    [super viewDidAppear:animated];</span><br><span class="line">    </span><br><span class="line">    NSLog(@&quot;%@ ---&gt; %s&quot;, self.class, __func__);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 视图即将消失</span><br><span class="line">- (void)viewWillDisappear:(BOOL)animated &#123;</span><br><span class="line">    [super viewWillDisappear:animated];</span><br><span class="line">    </span><br><span class="line">    NSLog(@&quot;%@ ---&gt; %s&quot;, self.class, __func__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 视图已经消失</span><br><span class="line">- (void)viewDidDisappear:(BOOL)animated &#123;</span><br><span class="line">    [super viewDidDisappear:animated];</span><br><span class="line">    </span><br><span class="line">    NSLog(@&quot;%@ ---&gt; %s&quot;, self.class, __func__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">***导航控制器的生命周期</span><br><span class="line">第一次显示</span><br><span class="line">        OneViewController ---&gt; -[BaseViewController viewDidLoad]</span><br><span class="line">        OneViewController ---&gt; -[BaseViewController viewWillAppear:]</span><br><span class="line">        OneViewController ---&gt; -[BaseViewController viewDidAppear:]</span><br><span class="line"></span><br><span class="line">    跳转到twoVc</span><br><span class="line">        OneViewController ---&gt; -[BaseViewController viewWillDisappear:]</span><br><span class="line">        TwoViewController ---&gt; -[BaseViewController viewDidLoad]</span><br><span class="line">        TwoViewController ---&gt; -[BaseViewController viewWillAppear:]</span><br><span class="line">        OneViewController ---&gt; -[BaseViewController viewDidDisappear:]</span><br><span class="line">        TwoViewController ---&gt; -[BaseViewController viewDidAppear:]</span><br><span class="line"> </span><br><span class="line">    </span><br><span class="line">    直接返回</span><br><span class="line">        TwoViewController ---&gt; -[BaseViewController viewWillDisappear:]</span><br><span class="line">        OneViewController ---&gt; -[BaseViewController viewWillAppear:]</span><br><span class="line">        TwoViewController ---&gt; -[BaseViewController viewDidDisappear:]</span><br><span class="line">        OneViewController ---&gt; -[BaseViewController viewDidAppear:]</span><br><span class="line"> </span><br><span class="line">    拖拽返回</span><br><span class="line">        TwoViewController ---&gt; -[BaseViewController viewWillDisappear:]</span><br><span class="line">        OneViewController ---&gt; -[BaseViewController viewWillAppear:]</span><br><span class="line">        TwoViewController ---&gt; -[BaseViewController viewDidDisappear:]</span><br><span class="line">        OneViewController ---&gt; -[BaseViewController viewDidAppear:]</span><br><span class="line"></span><br><span class="line">    拖拽不返回</span><br><span class="line">        TwoViewController ---&gt; -[BaseViewController viewWillDisappear:]</span><br><span class="line">        OneViewController ---&gt; -[BaseViewController viewWillAppear:]</span><br><span class="line">        OneViewController ---&gt; -[BaseViewController viewWillDisappear:]</span><br><span class="line">        OneViewController ---&gt; -[BaseViewController viewDidDisappear:]</span><br><span class="line">        TwoViewController ---&gt; -[BaseViewController viewWillAppear:]</span><br><span class="line">        TwoViewController ---&gt; -[BaseViewController viewDidAppear:]</span><br><span class="line"></span><br><span class="line">***TabBar控制器的生命周期 </span><br><span class="line">       </span><br><span class="line">第一次显示</span><br><span class="line">        OneViewController ---&gt; -[BaseViewController viewDidLoad]</span><br><span class="line">        OneViewController ---&gt; -[BaseViewController viewWillAppear:]</span><br><span class="line">        OneViewController ---&gt; -[BaseViewController viewDidAppear:]</span><br><span class="line"></span><br><span class="line">    跳转到twoVc</span><br><span class="line">        OneViewController ---&gt; -[BaseViewController viewWillDisappear:]</span><br><span class="line">        TwoViewController ---&gt; -[BaseViewController viewDidLoad]</span><br><span class="line">        TwoViewController ---&gt; -[BaseViewController viewWillAppear:]</span><br><span class="line">        OneViewController ---&gt; -[BaseViewController viewDidDisappear:]</span><br><span class="line">        TwoViewController ---&gt; -[BaseViewController viewDidAppear:]</span><br><span class="line"> </span><br><span class="line">    </span><br><span class="line">    直接返回</span><br><span class="line">        TwoViewController ---&gt; -[BaseViewController viewWillDisappear:]</span><br><span class="line">        OneViewController ---&gt; -[BaseViewController viewWillAppear:]</span><br><span class="line">        TwoViewController ---&gt; -[BaseViewController viewDidDisappear:]</span><br><span class="line">        OneViewController ---&gt; -[BaseViewController viewDidAppear:]</span><br><span class="line"> </span><br><span class="line">    拖拽返回</span><br><span class="line">        TwoViewController ---&gt; -[BaseViewController viewWillDisappear:]</span><br><span class="line">        OneViewController ---&gt; -[BaseViewController viewWillAppear:]</span><br><span class="line">        TwoViewController ---&gt; -[BaseViewController viewDidDisappear:]</span><br><span class="line">        OneViewController ---&gt; -[BaseViewController viewDidAppear:]</span><br><span class="line"></span><br><span class="line">    拖拽不返回</span><br><span class="line">        TwoViewController ---&gt; -[BaseViewController viewWillDisappear:]</span><br><span class="line">        OneViewController ---&gt; -[BaseViewController viewWillAppear:]</span><br><span class="line">        OneViewController ---&gt; -[BaseViewController viewWillDisappear:]</span><br><span class="line">        OneViewController ---&gt; -[BaseViewController viewDidDisappear:]</span><br><span class="line">        TwoViewController ---&gt; -[BaseViewController viewWillAppear:]</span><br><span class="line">        TwoViewController ---&gt; -[BaseViewController viewDidAppear:]</span><br></pre></td></tr></table></figure>
+<h3 id="视图的生命周期-1"><a href="#视图的生命周期-1" class="headerlink" title="视图的生命周期"></a>视图的生命周期</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">// 可以再UIView中,合适的方法中调用比如说定时器之类的东西</span><br><span class="line">// 将要移动到父视图</span><br><span class="line">- (void)willMoveToSuperview:(UIView *)newSuperview &#123;</span><br><span class="line">    </span><br><span class="line">    NSLog(@&quot;%@&quot;, newSuperview);</span><br><span class="line"></span><br><span class="line">    NSLog(@&quot;%@ --&gt; %s&quot;, self.class, __func__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 已经移动到父视图</span><br><span class="line">- (void)didMoveToSuperview &#123;</span><br><span class="line">    </span><br><span class="line">    [super didMoveToSuperview];</span><br><span class="line">    NSLog(@&quot;%@ --&gt; %s&quot;, self.class, __func__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 将要移动到窗口</span><br><span class="line">- (void)willMoveToWindow:(UIWindow *)newWindow &#123;</span><br><span class="line"></span><br><span class="line">    [super willMoveToWindow:newWindow];</span><br><span class="line"></span><br><span class="line">    NSLog(@&quot;%@ --&gt; %s&quot;, self.class, __func__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 已经移动到窗口</span><br><span class="line">- (void)didMoveToWindow &#123;</span><br><span class="line">    </span><br><span class="line">    [super didMoveToWindow];</span><br><span class="line">    </span><br><span class="line">    NSLog(@&quot;%@ --&gt; %s&quot;, self.class, __func__);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="内存警告的方法"><a href="#内存警告的方法" class="headerlink" title="内存警告的方法"></a>内存警告的方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 当系统内存紧张的时候,会触发这个方法!</span><br><span class="line">// 在项目中,接收到内存警告,需要做的操作:</span><br><span class="line">1. 清除应用的缓存!&quot;缓存图片&quot;!及时释放内存!</span><br><span class="line">2. 如果什么都不做,有时候应用就直接被干掉了!</span><br><span class="line"></span><br><span class="line">-</span><br><span class="line"> (void)didReceiveMemoryWarning &#123;</span><br><span class="line">    [super didReceiveMemoryWarning];    </span><br><span class="line">    // 如果视图有值，并且不可见</span><br><span class="line">    if (self.view != nil &amp;&amp; self.view.window == nil) &#123;        </span><br><span class="line">        // 将视图置为nil</span><br><span class="line">        self.view = nil;     </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="控制器之间的传值-顺传"><a href="#控制器之间的传值-顺传" class="headerlink" title="控制器之间的传值(顺传)"></a>控制器之间的传值(顺传)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">1.  基于storyboard开发，在跳转的时候会执行这个方法</span><br><span class="line">	通过 [segue destinationViewController] 方法获取新的控制器! </span><br><span class="line">	destination目的地!</span><br><span class="line">	目标控制器 segue.destinationViewController</span><br><span class="line">	通过控件跳转到时候,sender就是控件本身!</span><br><span class="line">- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender &#123;</span><br><span class="line">    NSLog(@&quot;%@&quot;, sender);// 触发事件的(对象)按钮</span><br><span class="line">    // 1.取目标vc</span><br><span class="line">    UIViewController *vc = segue.destinationViewController;</span><br><span class="line">    // 2.传递值</span><br><span class="line">    ((TwoViewController *)vc).txtStr = &quot;要传递的内容&quot;;</span><br><span class="line">&#125;</span><br><span class="line">2. 正常的拿到目标控制器,进行属性赋值操作</span><br><span class="line">// 创建对象</span><br><span class="line">	CZTwoViewController *twoVc = [[CZTwoViewController alloc] init];    </span><br><span class="line">// 赋值</span><br><span class="line">    twoVc.text = _txtFld.text;    </span><br><span class="line">//	跳转</span><br><span class="line">    [self.navigationController pushViewController:twoVc animated:YES];</span><br></pre></td></tr></table></figure>
+<h3 id="控制器之间的传值-代理逆传"><a href="#控制器之间的传值-代理逆传" class="headerlink" title="控制器之间的传值(代理逆传)"></a>控制器之间的传值(代理逆传)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">1. 制定协议</span><br><span class="line">	@class TwoViewController;</span><br><span class="line">	@protocol TwoViewControllerDelegate &lt;NSObject&gt;</span><br><span class="line">	@optional</span><br><span class="line">	- (void)twoViewController:(TwoViewController *)vc needsMoney:(NSString *)moneyStr;</span><br><span class="line">	@end	</span><br><span class="line">2. 代理属性</span><br><span class="line">	@property (nonatomic, weak) id&lt;TwoViewControllerDelegate&gt; delegate;	</span><br><span class="line">3. 判断，并让代理做事情</span><br><span class="line">	if ([_delegate respondsToSelector:@selector(twoViewController:needsMoney:)]) &#123;</span><br><span class="line">	        [_delegate twoViewController:self needsMoney:txt];</span><br><span class="line">	    &#125;</span><br><span class="line">		    </span><br><span class="line">4. 设置代理</span><br><span class="line">	((TwoViewController *)vc).delegate = self;</span><br><span class="line">	    </span><br><span class="line">5. 遵守协议</span><br><span class="line">	@interface OneViewController () &lt;TwoViewControllerDelegate&gt;</span><br><span class="line">6. 实现方法</span><br><span class="line">- (void)twoViewController:(TwoViewController *)vc needsMoney:(NSString *)moneyStr &#123;</span><br><span class="line">    NSLog(@&quot;%@&quot;, moneyStr);    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="segue-分手动型和自动型两种"><a href="#segue-分手动型和自动型两种" class="headerlink" title="segue 分手动型和自动型两种"></a>segue 分手动型和自动型两种</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">自动型segue：</span><br><span class="line">    在storyboard文件中。通过按住control键 + 在控件上 拖线 跳转到下一个控制器，为自动型segue。</span><br><span class="line">    只要点击控件，就跳转了。    </span><br><span class="line">    使用简单方便，说走就走，不受程序员控制器！系统会在跳转时执行控制器的prepareForSegue方法，做值的传递工作。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">手动型segue：</span><br><span class="line">    在storyboard文件中。通过选择控制器上面的黄色控制器按钮，然后 control + 从控制器脱线跳转的segue，为手动型segue</span><br><span class="line">    执行时机由程序员控制器！更加方便准确！ </span><br><span class="line">    需要通过 performSegueWithIdentifier: 方法实现跳转！注意给segue加标记！</span><br><span class="line">-(void)touchesBegan:(NSSet&lt;UITouch *&gt; *)touches withEvent:(UIEvent *)event&#123;</span><br><span class="line">	// 这句代码可以放到任意你想要进行判断条件和方法中</span><br><span class="line">    [self performSegueWithIdentifier:@&quot;one&quot; sender:nil];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)performSegueWithIdentifier:(NSString *)identifier sender:(id)sender&#123;</span><br><span class="line">	// 这里判断indentifier是不是&quot;one&quot;,然后进行对应的跳转逻辑</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/25/iOS容易遗忘知识点[UI基础篇]/" rel="next" title="iOS容易遗忘知识点[UI基础篇]">
+                <i class="fa fa-chevron-left"></i> iOS容易遗忘知识点[UI基础篇]
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/20/iOS无规律总结[UI进阶篇三]/" rel="prev" title="iOS无规律总结[UI进阶篇三]">
+                iOS无规律总结[UI进阶篇三] <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/icon.png"
+                alt="Lin Wang" />
+            
+              <p class="site-author-name" itemprop="name">Lin Wang</p>
+              <p class="site-description motion-element" itemprop="description">任何事情不会怕慢，怕的是踌躇不前。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#图文混排富文本"><span class="nav-number">1.</span> <span class="nav-text">图文混排富文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#毛玻璃效果"><span class="nav-number">2.</span> <span class="nav-text">毛玻璃效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UITextField"><span class="nav-number">3.</span> <span class="nav-text">UITextField</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#断言"><span class="nav-number">4.</span> <span class="nav-text">断言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UISegmentedControl"><span class="nav-number">5.</span> <span class="nav-text">UISegmentedControl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#心得体会-lt-欢迎大神指导-gt"><span class="nav-number">6.</span> <span class="nav-text">心得体会&lt;欢迎大神指导&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LoadView"><span class="nav-number">7.</span> <span class="nav-text">LoadView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视图的生命周期"><span class="nav-number">8.</span> <span class="nav-text">视图的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#视图的生命周期-1"><span class="nav-number">9.</span> <span class="nav-text">视图的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存警告的方法"><span class="nav-number">10.</span> <span class="nav-text">内存警告的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制器之间的传值-顺传"><span class="nav-number">11.</span> <span class="nav-text">控制器之间的传值(顺传)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制器之间的传值-代理逆传"><span class="nav-number">12.</span> <span class="nav-text">控制器之间的传值(代理逆传)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#segue-分手动型和自动型两种"><span class="nav-number">13.</span> <span class="nav-text">segue 分手动型和自动型两种</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lin Wang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">HuangLinWang</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

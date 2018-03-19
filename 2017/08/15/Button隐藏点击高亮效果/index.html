@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Button隐藏点击高亮效果title: Button隐藏点击高亮效果 date: 2017/8/15 categories: - UI技巧 ##方案一:">
+<meta name="description" content="方案一:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LinWang&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/2017/05/05/Button隐藏点击高亮效果/index.html">
+<meta property="og:title" content="Button隐藏点击高亮效果">
+<meta property="og:url" content="http://yoursite.com/2017/08/15/Button隐藏点击高亮效果/index.html">
 <meta property="og:site_name" content="LinWang&#39;s Blog">
-<meta property="og:description" content="Button隐藏点击高亮效果title: Button隐藏点击高亮效果 date: 2017/8/15 categories: - UI技巧 ##方案一:">
+<meta property="og:description" content="方案一:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-19T11:48:38.126Z">
+<meta property="og:updated_time" content="2018-03-19T11:55:34.039Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LinWang&#39;s Blog">
-<meta name="twitter:description" content="Button隐藏点击高亮效果title: Button隐藏点击高亮效果 date: 2017/8/15 categories: - UI技巧 ##方案一:">
+<meta name="twitter:title" content="Button隐藏点击高亮效果">
+<meta name="twitter:description" content="方案一:">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/05/Button隐藏点击高亮效果/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/15/Button隐藏点击高亮效果/"/>
 
 
 
 
 
-  <title> | LinWang's Blog</title>
+  <title>Button隐藏点击高亮效果 | LinWang's Blog</title>
   
 
 
@@ -242,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/05/Button隐藏点击高亮效果/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/15/Button隐藏点击高亮效果/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lin Wang">
@@ -259,7 +259,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">Button隐藏点击高亮效果</h1>
         
 
         <div class="post-meta">
@@ -271,8 +271,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-05T16:59:19+08:00">
-                2017-05-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-15T00:00:00+08:00">
+                2017-08-15
               </time>
             
 
@@ -281,6 +281,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/UI技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">UI技巧</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -309,11 +331,7 @@
       
 
       
-        <h1 id="Button隐藏点击高亮效果"><a href="#Button隐藏点击高亮效果" class="headerlink" title="Button隐藏点击高亮效果"></a>Button隐藏点击高亮效果</h1><p>title: Button隐藏点击高亮效果</p>
-<p>date: 2017/8/15</p>
-<p>categories:</p>
-<pre><code>- UI技巧
-</code></pre><p>##方案一:<br><a id="more"></a></p>
+        <h2 id="方案一"><a href="#方案一" class="headerlink" title="方案一:"></a>方案一:</h2><a id="more"></a>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//保证所有touch事件button的highlighted属性为NO,即可去除高亮效果</span></span><br><span class="line">[button addTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(preventFlicker:) forControlEvents:<span class="built_in">UIControlEventAllTouchEvents</span>];</span><br></pre></td></tr></table></figure>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)preventFlicker:(<span class="built_in">UIButton</span> *)button &#123;</span><br><span class="line">    button.highlighted = <span class="literal">NO</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="方案二"><a href="#方案二" class="headerlink" title="方案二:"></a>方案二:</h2><p>一句话搞定</p>
@@ -342,8 +360,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/01/Block/" rel="next" title="Block">
-                <i class="fa fa-chevron-left"></i> Block
+              <a href="/2017/08/10/快捷键/" rel="next" title="快捷键">
+                <i class="fa fa-chevron-left"></i> 快捷键
               </a>
             
           </div>
@@ -352,8 +370,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/15/如何快速接手老项目/" rel="prev" title="如何快速接手老项目">
-                如何快速接手老项目 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/25/iOS容易遗忘知识点[UI基础篇]/" rel="prev" title="iOS容易遗忘知识点[UI基础篇]">
+                iOS容易遗忘知识点[UI基础篇] <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -435,7 +453,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -481,7 +499,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Button隐藏点击高亮效果"><span class="nav-number">1.</span> <span class="nav-text">Button隐藏点击高亮效果</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方案二"><span class="nav-number">1.1.</span> <span class="nav-text">方案二:</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#方案一"><span class="nav-number">1.</span> <span class="nav-text">方案一:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方案二"><span class="nav-number">2.</span> <span class="nav-text">方案二:</span></a></li></ol></div>
             
 
           </div>
