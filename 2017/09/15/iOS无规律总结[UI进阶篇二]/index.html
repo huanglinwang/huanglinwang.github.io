@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="应用的bundle[包]1234567// 1.获取应用的包路径[bundle -&amp;gt; 在mac中的位置]说明：应用的包路径，里面存放了应用的代码可执行文件，及其他的资源文件！// 一般程序员不对其进行操作!    NSString *bundlePath = [NSBundle mainBundle].bundlePath;    // 2.获取应用的info.plist文件的内容    N">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS无规律总结[UI进阶篇二]">
+<meta property="og:url" content="http://yoursite.com/2017/09/15/iOS无规律总结[UI进阶篇二]/index.html">
+<meta property="og:site_name" content="LinWang&#39;s Blog">
+<meta property="og:description" content="应用的bundle[包]1234567// 1.获取应用的包路径[bundle -&amp;gt; 在mac中的位置]说明：应用的包路径，里面存放了应用的代码可执行文件，及其他的资源文件！// 一般程序员不对其进行操作!    NSString *bundlePath = [NSBundle mainBundle].bundlePath;    // 2.获取应用的info.plist文件的内容    N">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-20T06:43:02.682Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS无规律总结[UI进阶篇二]">
+<meta name="twitter:description" content="应用的bundle[包]1234567// 1.获取应用的包路径[bundle -&amp;gt; 在mac中的位置]说明：应用的包路径，里面存放了应用的代码可执行文件，及其他的资源文件！// 一般程序员不对其进行操作!    NSString *bundlePath = [NSBundle mainBundle].bundlePath;    // 2.获取应用的info.plist文件的内容    N">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/09/15/iOS无规律总结[UI进阶篇二]/"/>
+
+
+
+
+
+  <title>iOS无规律总结[UI进阶篇二] | LinWang's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LinWang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/15/iOS无规律总结[UI进阶篇二]/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lin Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/icon.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LinWang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS无规律总结[UI进阶篇二]</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-15T00:00:00+08:00">
+                2017-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/UI技巧/" itemprop="url" rel="index">
+                    <span itemprop="name">UI技巧</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="应用的bundle-包"><a href="#应用的bundle-包" class="headerlink" title="应用的bundle[包]"></a>应用的bundle[包]</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 1.获取应用的包路径[bundle -&gt; 在mac中的位置]</span><br><span class="line">说明：应用的包路径，里面存放了应用的代码可执行文件，及其他的资源文件！</span><br><span class="line">// 一般程序员不对其进行操作!</span><br><span class="line">    NSString *bundlePath = [NSBundle mainBundle].bundlePath;</span><br><span class="line">    </span><br><span class="line">// 2.获取应用的info.plist文件的内容</span><br><span class="line">    NSDictionary *infoDict = [NSBundle mainBundle].infoDictionary;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="沙盒"><a href="#沙盒" class="headerlink" title="沙盒"></a>沙盒</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 3.获取沙盒路径 NSHomeDirectory()</span><br><span class="line">沙盒路径【主路径】</span><br><span class="line">应用的沙盒主目录，默认有Document/Library/temp三个子目录</span><br><span class="line">可以进行存储和读取数据操作！  </span><br><span class="line">    NSString *sandBoxPath = NSHomeDirectory();</span><br></pre></td></tr></table></figure>
+<h3 id="获取documents路径-文档目录"><a href="#获取documents路径-文档目录" class="headerlink" title="获取documents路径 文档目录"></a>获取documents路径 文档目录</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">	 参数1： 文档目录名称，不能写NSDocumentionDirectory[错误写法]</span><br><span class="line">     参数2： 用户权限，固定 NSUserDomainMask</span><br><span class="line">     参数3： 是否展开波浪线，固定 YES</span><br><span class="line">     - 文档目录，可以用于存储一些比较重要的数据，由应用程序生成的数据！</span><br><span class="line">     - 在备份的时候，会备份此目录！</span><br><span class="line">NSString *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).lastObject;</span><br></pre></td></tr></table></figure>
+<h3 id="获取缓存路径"><a href="#获取缓存路径" class="headerlink" title="获取缓存路径"></a>获取缓存路径</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">说明：- 缓存目录，通常保存从网络上下载的需要持久化的数据</span><br><span class="line">     - 备份时，不会备份该目录，并且不会自动删除数据，需要程序内部提供删除的操作！</span><br><span class="line">NSString *cachePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;</span><br></pre></td></tr></table></figure>
+<h3 id="获取tmp路径-临时文件目录"><a href="#获取tmp路径-临时文件目录" class="headerlink" title="获取tmp路径 临时文件目录!"></a>获取tmp路径 临时文件目录!</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">说明：- 临时文件目录，系统会自动删除其中的文件</span><br><span class="line">     - 用于存储临时文件时使用！</span><br><span class="line">NSString *tmpPath = NSTemporaryDirectory();</span><br></pre></td></tr></table></figure>
+<h3 id="plist"><a href="#plist" class="headerlink" title="plist"></a>plist</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">数据存储为plist文件</span><br><span class="line">NSDictionary *dict = @&#123;@&quot;name&quot; : @&quot;wuqi&quot;,@&quot;age&quot; : @18&#125;;</span><br><span class="line">NSString *filePath = [self filePathWithFileName:@&quot;文件.plist&quot;];</span><br><span class="line">	 参数1: 文件路径</span><br><span class="line">     参数2: 原子属性-&gt; 设置为YES,更安全!</span><br><span class="line">     -&gt; 即使应用崩溃,存储也不受影响!</span><br><span class="line">     -&gt; 保证写入的唯一性!</span><br><span class="line">[dict writeToFile:filePath atomically:YES];</span><br><span class="line"></span><br><span class="line">读取plist文件</span><br><span class="line">NSString *filePath = 文件路径;</span><br><span class="line">// 看plist文件是什么类型和结构.对应的进行读取</span><br><span class="line">[NSDictionary dictionaryWithContentsOfFile:filePath];</span><br><span class="line">[NSArray arrayWithContentsOfFile:filePath]</span><br></pre></td></tr></table></figure>
+<h3 id="NSString"><a href="#NSString" class="headerlink" title="NSString"></a>NSString</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">如果字符串中有 &quot;/&quot;,就不再增加斜杠,如果没有,自动增加&quot;/&quot;</span><br><span class="line">[@&quot;abc&quot; stringByAppendingPathComponent:@&quot;123.text&quot;];</span><br><span class="line">@&quot;abc/123.text&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="NSURL"><a href="#NSURL" class="headerlink" title="NSURL"></a>NSURL</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">这种方式加载的文件是我们直接拖入的,在bundle里面的文件!</span><br><span class="line">NSURL *url = [[NSBundle mainBundle] URLForResource:@&quot;xxx.plist&quot; withExtension:nil];</span><br><span class="line">从磁盘文件中读取的时候用这个方法 仅供参考[加载的是磁盘中文件的路径转为url]</span><br><span class="line">NSURL *url = [NSURL fileURLWithPath:filePath];</span><br></pre></td></tr></table></figure>
+<h3 id="NSUserDefaults-单例-偏好设置-gt-负责偏好设置存储及读取操作"><a href="#NSUserDefaults-单例-偏好设置-gt-负责偏好设置存储及读取操作" class="headerlink" title="NSUserDefaults 单例 偏好设置 -&gt; 负责偏好设置存储及读取操作!"></a>NSUserDefaults 单例 偏好设置 -&gt; 负责偏好设置存储及读取操作!</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">存</span><br><span class="line">// 1.获取用户偏好设置对象</span><br><span class="line">    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];</span><br><span class="line">// 2.存储数据</span><br><span class="line">    [defaults setBool:isMan forKey:@&quot;LWIsMan&quot;];</span><br><span class="line">    [defaults setFloat:fontSize forKey:@&quot;LWFontSize&quot;];</span><br><span class="line">    [defaults setObject:str forKey:@&quot;LWStr&quot;];</span><br><span class="line">// 3.同步 - &gt; 保证数据立即写入磁盘!目前已经不需要了! </span><br><span class="line">同步操作，保证数据立即被写入磁盘，老项目中经常会见到，将要被废弃。</span><br><span class="line">以后在写偏好设置时，可以不同同步，但是见到需要了解其含义！</span><br><span class="line">//    [defaults synchronize];不写</span><br><span class="line">    </span><br><span class="line">取</span><br><span class="line">NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];</span><br><span class="line">BOOL man = [defaults boolForKey:@&quot;LWIsMan&quot;];</span><br><span class="line">float size = [defaults floatForKey:@&quot;LWFontSize&quot;];</span><br><span class="line">    NSString *str = [defaults stringForKey:@&quot;LWStr&quot;];</span><br></pre></td></tr></table></figure>
+<h3 id="数据存储-归档-amp-解档"><a href="#数据存储-归档-amp-解档" class="headerlink" title="数据存储[归档&amp;解档]"></a>数据存储[归档&amp;解档]</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">归档</span><br><span class="line">使用归档存储自定义对象的操作</span><br><span class="line">进行归档操作时,需要自定义对象的类型 需要NSCoding协议!</span><br><span class="line">实现归档方法! -&gt; 告诉系统按照什么原则进行归档![标准!]</span><br><span class="line"></span><br><span class="line">1. 遵守协议! &lt;NSCoding&gt;</span><br><span class="line">@interface Person : NSObject &lt;NSCoding&gt;</span><br><span class="line">@property (copy, nonatomic) NSString *name;// 姓名</span><br><span class="line">@property (assign, nonatomic) NSInteger age;// 年龄</span><br><span class="line">@property (copy, nonatomic) NSString *phoneNumber;// 电话</span><br><span class="line"></span><br><span class="line">2. NSCoding中的协议方法 -&gt; 通过aCoder设定对应的归档原则!</span><br><span class="line"> - (void)encodeWithCoder:(NSCoder *)aCoder &#123;    </span><br><span class="line">    [aCoder encodeObject:_name forKey:KeyName];</span><br><span class="line">    [aCoder encodeInteger:_age forKey:KeyAge];</span><br><span class="line">    [aCoder encodeObject:_phoneNumber forKey:KeyPhoneNumber];</span><br><span class="line">&#125;</span><br><span class="line">// NSKeyedArchiver 负责归档数据!</span><br><span class="line">// 存储的对象</span><br><span class="line">// 文件路径中如果带上文件名对应的后缀,没有什么实际意义! 在mac中,写后缀,系统根据后缀选择一个默认的应用进行打开!</span><br><span class="line">    [NSKeyedArchiver archiveRootObject:存储的对象 toFile:&quot;文件路径&quot;];</span><br><span class="line">// !! 也可以直接归档实现NSCoding协议的归档对象的数组</span><br><span class="line">NSArray *arr = @[person1, person2];</span><br><span class="line">[NSKeyedArchiver archiveRootObject:arr toFile:&quot;文件路径&quot;];    </span><br><span class="line"></span><br><span class="line">解档    </span><br><span class="line">NSCoding中的协议方法 -&gt; 通过aDecoder设置对应的解档原则</span><br><span class="line">// 解码出来的数据赋值给谁? -赋值给对象本身</span><br><span class="line">- (instancetype)initWithCoder:(NSCoder *)aDecoder &#123;    </span><br><span class="line">    if (self = [super init]) &#123;        </span><br><span class="line">        // 读取数据信息</span><br><span class="line">        _name = [aDecoder decodeObjectForKey:KeyName];</span><br><span class="line">        _phoneNumber = [aDecoder decodeObjectForKey:KeyPhoneNumber];</span><br><span class="line">        _age = [aDecoder decodeIntegerForKey:KeyAge];</span><br><span class="line">    &#125;</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">通过NSKeyedUnArchiver 读取数据</span><br><span class="line">[NSKeyedUnarchiver unarchiveObjectWithFile:&quot;文件路径&quot;];</span><br></pre></td></tr></table></figure>
+<h3 id="iOS中的三大事件"><a href="#iOS中的三大事件" class="headerlink" title="iOS中的三大事件!"></a>iOS中的三大事件!</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">加速计事件[摇一摇]! </span><br><span class="line">远程控制事件[耳机]!</span><br><span class="line">[触摸事件!]</span><br></pre></td></tr></table></figure>
+<h3 id="响应者"><a href="#响应者" class="headerlink" title="响应者"></a>响应者</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Respond 响应!</span><br><span class="line">在iOS中,所有继承UIResponder类型的对象,都是响应者对象!</span><br><span class="line">我们常用控件,控制器,应用程序大家都是响应者对象</span><br><span class="line">UIWindow -&gt; 继承自UIView 也是一个响应者对象!</span><br></pre></td></tr></table></figure>
+<h3 id="NSSet"><a href="#NSSet" class="headerlink" title="NSSet"></a>NSSet</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">NSSet 类型的 touches  -&gt; NSSet也是一个集合里面存放的是UITouch类型的对象!</span><br><span class="line"></span><br><span class="line">NSSet也是一个集合</span><br><span class="line">    &gt; 没有顺序!</span><br><span class="line">    &gt; 通过anyObject获取集合中的元素</span><br><span class="line">    &gt; 遍历</span><br><span class="line">    i for 循环!不可以!因为没有顺序!</span><br><span class="line">        -&gt; 只能通过forIn进行遍历</span><br><span class="line">        -&gt; 通过block进行遍历!</span><br></pre></td></tr></table></figure>
+<h3 id="手势触摸Touche"><a href="#手势触摸Touche" class="headerlink" title="手势触摸Touche"></a>手势触摸Touche</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// 触摸开始</span><br><span class="line">- (void)touchesBegan:(NSSet&lt;UITouch *&gt; *)touches withEvent:(UIEvent *)event &#123;</span><br><span class="line">    // 1.触摸点 -&gt; self.superView 获取相对于父视图来说的坐标点</span><br><span class="line">    CGPoint loc = [touches.anyObject locationInView:self.superview];    </span><br><span class="line">    // 2.修改中心点</span><br><span class="line">    self.center = loc;    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 触摸移动 -&gt; 移动一个视图</span><br><span class="line">- (void)touchesMoved:(NSSet&lt;UITouch *&gt; *)touches withEvent:(UIEvent *)event &#123;</span><br><span class="line">	// 1.获取当前点</span><br><span class="line">    CGPoint loc = [touches.anyObject locationInView:self];    </span><br><span class="line">    // 2.上一次的点</span><br><span class="line">    CGPoint preLoc = [touches.anyObject previousLocationInView:self];</span><br><span class="line">    // 3.计算偏移量</span><br><span class="line">    CGFloat offsetX = loc.x - preLoc.x;</span><br><span class="line">    CGFloat offsetY = loc.y - preLoc.y;    </span><br><span class="line">    // 4.修改位置</span><br><span class="line">    self.center = CGPointMake(self.center.x + offsetX, self.center.y + offsetY);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="坐标转换"><a href="#坐标转换" class="headerlink" title="坐标转换"></a>坐标转换</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 进行坐标转换的方法!</span><br><span class="line">    [self convertPoint:loc toView:self.superview]</span><br></pre></td></tr></table></figure>
+<h3 id="控件不接受用户交互的情况"><a href="#控件不接受用户交互的情况" class="headerlink" title="控件不接受用户交互的情况"></a>控件不接受用户交互的情况</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">	1.透明度 &lt;=0.01</span><br><span class="line">	2.hidden = YES</span><br><span class="line">	3.userInteractionEnable = NO用户交互关闭</span><br><span class="line">	4.控件的父控件不接受用户交互</span><br><span class="line">	5.控件超出了父控件的区域</span><br><span class="line">	6.UIImageView默认是关闭用户交互的!添加需要做事情的控件时需要打开用户交互!</span><br><span class="line">	</span><br><span class="line">如果遇到某些控件,比如说按钮,点了之后没反应,或者列表视图不能滚动了!</span><br><span class="line">    // 1.看当前控件的用户交互是否被关闭?</span><br><span class="line">    // 2.看当前控件的父控件用户交互是否被关闭?</span><br><span class="line">    // 3.看当前控件显示的位置,是否超出了父控件!</span><br><span class="line">    // 4.看当前控件的父控件,是否超出了父控件的范围!</span><br></pre></td></tr></table></figure>
+<h3 id="手势识别"><a href="#手势识别" class="headerlink" title="手势识别"></a>手势识别</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">手势识别器的基本结构：</span><br><span class="line">	UITapGestureRecognizer;         // 轻点手势识别器</span><br><span class="line">	UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapActionClick:)];</span><br><span class="line">	</span><br><span class="line">	UILongPressGestureRecognizer;   // 长按手势识别器</span><br><span class="line">	UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressAction:)];</span><br><span class="line">	</span><br><span class="line">	UIRotationGestureRecognizer;    // 旋转手势识别器</span><br><span class="line">	UIRotationGestureRecognizer *rotation = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(rotationAction:)];</span><br><span class="line">	// 响应事件中</span><br><span class="line">	旋转的角度会一直类加，所以旋转事件结束后将旋转的弧度清零</span><br><span class="line">	旋转最后需要将手势旋转角度清零</span><br><span class="line">    rotation.rotation = 0;</span><br><span class="line">	</span><br><span class="line">	UIPinchGestureRecognizer;       // 捏合手势识别器</span><br><span class="line">    UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(pinchAction:)];</span><br><span class="line">	// 响应事件中</span><br><span class="line">	// 缩放结束后将手势缩放比设置为1</span><br><span class="line">   	pinch.scale = 1.0;</span><br><span class="line">	</span><br><span class="line">	UISwipeGestureRecognizer;       // 清扫手势识别器</span><br><span class="line">	// 添加一个向右扫动的手势</span><br><span class="line">    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeAction:)];</span><br><span class="line">    // 设置支持的扫动方向 -&gt;	默认只支持一个方向，向右扫动时触发。</span><br><span class="line">    swipe.direction = UISwipeGestureRecognizerDirectionLeft;</span><br><span class="line">    </span><br><span class="line">	UIPanGestureRecognizer;         // 拖拽手势识别器</span><br><span class="line">	// 1.实例化拖拽手势识别器</span><br><span class="line">    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction:)];</span><br><span class="line">    // 响应事件中</span><br><span class="line">    // 计算移动的距离</span><br><span class="line">    CGPoint offset = [pan translationInView:pan.view];</span><br><span class="line">    // 将手势识别器的移动距离恢复为0</span><br><span class="line">    [pan setTranslation:CGPointZero inView:pan.view];</span><br><span class="line">            </span><br><span class="line">手势识别器的基本用法：</span><br><span class="line">    1. 实例化手势识别器，指定响应的方法</span><br><span class="line">    2. 将手势识别器添加到对应的view内</span><br><span class="line">    3. 实现相应的方法，在方法内执行需要的操作</span><br><span class="line">                </span><br><span class="line">如果实现多手势操作：</span><br><span class="line">    1. 设置手势识别器的代理</span><br><span class="line">    &lt;UIGestureRecognizerDelegate&gt;</span><br><span class="line">    2. 实现相应的代理方法，支持多手势识别。    </span><br><span class="line">- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer &#123;</span><br><span class="line">    return YES;</span><br><span class="line">&#125;    </span><br><span class="line"></span><br><span class="line">// 1.实例化手势识别器: 例如点按</span><br><span class="line">    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapActionClick:)];</span><br><span class="line">// 1.2设置一些公共的属性</span><br><span class="line">    tap.numberOfTapsRequired = 2;//要按几下才会响应</span><br><span class="line">    tap.numberOfTouchesRequired = 2;//要有几个手指按下才会响应</span><br><span class="line">// 2.将手势识别器添加到view里面</span><br><span class="line">    [self.headerView addGestureRecognizer:tap];    </span><br><span class="line">    </span><br><span class="line">// UIPanGestureRecognizer.state</span><br><span class="line">UIGestureRecognizerStateBegan // 开始</span><br><span class="line">UIGestureRecognizerStateChanged // 改变</span><br><span class="line">UIGestureRecognizerStateEnded //结束</span><br><span class="line">UIGestureRecognizerStateFailed // 失败</span><br><span class="line">UIGestureRecognizerStateCancelled // 取消</span><br></pre></td></tr></table></figure>
+<h3 id="事件的产生和传递"><a href="#事件的产生和传递" class="headerlink" title="事件的产生和传递"></a>事件的产生和传递</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">-&gt; 递归;牛逼的编程思想! -&gt; 条件满足,直接返回,条件不满足,自己调用自己,参数有改变!</span><br><span class="line"></span><br><span class="line">// 响应者链条!</span><br><span class="line">    有一系列的 &quot;响应者对象&quot;所&quot;组成&quot;的&quot;链式序列&quot;的,叫做&quot;响应者链条&quot;!</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">// 碰撞测试，模拟系统查找视图的过程</span><br><span class="line">// hitTest方法，由于内部算法的原因默认时执行两次的</span><br><span class="line">- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event &#123;</span><br><span class="line">    NSLog(@&quot;%@ --&gt; %s&quot;, self.class, __func__);</span><br><span class="line">    // 1.如果点不在视图上，直接返回</span><br><span class="line">    if (![self pointInside:point withEvent:event]) &#123;</span><br><span class="line">        return nil;</span><br><span class="line">    &#125;</span><br><span class="line">    // 2.如果不允许用户交互，返回nil</span><br><span class="line">    if (self.userInteractionEnabled == NO || self.hidden == YES || self.alpha &lt;= 0.01) &#123;</span><br><span class="line">        return nil;</span><br><span class="line">    &#125;</span><br><span class="line">    // 3.点在身上并且自己接受用户交互</span><br><span class="line">    for (int i = (int)self.subviews.count - 1; i &gt;= 0; i--) &#123;</span><br><span class="line">        // 3.1 取出最后一个视图</span><br><span class="line">        UIView *lastV = self.subviews[i];</span><br><span class="line">        // 3.2 转换坐标</span><br><span class="line">        CGPoint subPoint = [self convertPoint:point toView:lastV];</span><br><span class="line">        // 3.3 子视图里面接着找</span><br><span class="line">        UIView *nextView = [lastV hitTest:subPoint withEvent:event];</span><br><span class="line">        // 3.4 如果找到了，就返回</span><br><span class="line">        if (nextView) &#123;</span><br><span class="line">            return nextView;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br><span class="line">// 测试的结果和这个结果一致</span><br><span class="line">- (void)touchesBegan:(NSSet&lt;UITouch *&gt; *)touches withEvent:(UIEvent *)event &#123;</span><br><span class="line">    NSLog(@&quot;%@ --- %s&quot;, self.class, __func__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">	查找的过程</span><br><span class="line">	应用程序对象-&gt;窗口-&gt;控制器-&gt;控制器根视图-&gt;最后一个子控件-&gt;子控件内部的子控件-&gt;返回该子控件</span><br><span class="line">		应用程序对象-&gt;窗口-&gt;最后一个子控件-&gt;子控件内部的子控件-&gt;返回该子控件</span><br></pre></td></tr></table></figure>
+<h3 id="UIContainerView"><a href="#UIContainerView" class="headerlink" title="UIContainerView"></a>UIContainerView</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">UIContainerView 与 静态单元格类似，都是storyboard特有的。</span><br><span class="line">可以作为视图容器直接拿来使用！</span><br><span class="line"></span><br><span class="line">可以在UIContainerView上添加点按和拖拽来实现QQ侧滑的效果.</span><br><span class="line">UIContainerView 就是在界面添加一个View.View里面关联的是一个控制器</span><br></pre></td></tr></table></figure>
+<h3 id="父控制器添加子控制器"><a href="#父控制器添加子控制器" class="headerlink" title="父控制器添加子控制器"></a>父控制器添加子控制器</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)addChildViewController:(<span class="built_in">UIViewController</span> *)childController</span><br><span class="line">- (<span class="keyword">void</span>)removeFromParentViewController</span><br><span class="line">- (<span class="keyword">void</span>)transitionFromViewController：：：：：：</span><br><span class="line">- (<span class="keyword">void</span>)willMoveToParentViewController:(<span class="built_in">UIViewController</span> *)parent</span><br><span class="line">- (<span class="keyword">void</span>)didMoveToParentViewController:(<span class="built_in">UIViewController</span> *)parent</span><br><span class="line"></span><br><span class="line">关于willMoveToParentViewController方法和didMoveToParentViewController方法的使用</span><br><span class="line"></span><br><span class="line"><span class="number">1.</span>这两个方法用在子试图控制器交换的时候调用！即调用transitionFromViewController 方法时，调用。</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>当调用willMoveToParentViewController方法或didMoveToParentViewController方法时，要注意他们的参数使用：</span><br><span class="line"></span><br><span class="line">当某个子视图控制器将从父视图控制器中删除时，parent参数为<span class="literal">nil</span>。</span><br><span class="line">即：[将被删除的子试图控制器 willMoveToParentViewController:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">当某个子试图控制器将加入到父视图控制器时，parent参数为父视图控制器。</span><br><span class="line">即：[将被加入的子视图控制器 didMoveToParentViewController:父视图控制器];</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>无需调用[子视图控制器 willMoveToParentViewController:父视图控制器]方法。因为我们调用[父视图控制器 addChildViewController:子视图控制器]时，已经默认调用了。</span><br><span class="line">只需要在transitionFromViewController方法后，调用[子视图控制器didMoveToParentViewController:父视图控制器];</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span>无需调用[子视图控制器 didMoveToParentViewController:父视图控制器]方法。因为我们调用</span><br><span class="line">[子视图控制器 removeFromParentViewController]时，已经默认调用了。</span><br><span class="line">只需要在transitionFromViewController方法之前调用：[子视图控制器 willMoveToParentViewController:<span class="literal">nil</span>]。</span><br></pre></td></tr></table></figure>
+<h3 id="基本图形绘制-Quartz2D绘图"><a href="#基本图形绘制-Quartz2D绘图" class="headerlink" title="基本图形绘制-Quartz2D绘图"></a>基本图形绘制-Quartz2D绘图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line">1 如果需要向视图中进行图形绘制</span><br><span class="line">    - 要重写视图的drawRect方法，在其中编写绘图代码</span><br><span class="line"> </span><br><span class="line">2 绘图的基本步骤包括：</span><br><span class="line">    - 获取当前的图形上下文</span><br><span class="line">    - 向上下文中添加路径</span><br><span class="line">    - 渲染，【将上下文中的路径渲染到屏幕上并显示出来】</span><br><span class="line">    </span><br><span class="line">绘制三角形</span><br><span class="line">	// 1.获取图形上下文</span><br><span class="line">	// 一个Quartz2D的绘图环境!</span><br><span class="line">    CGContextRef cxt = UIGraphicsGetCurrentContext();</span><br><span class="line">    // 2.路径</span><br><span class="line">    // - 移动到起点</span><br><span class="line">    CGContextMoveToPoint(cxt, 50, 50);</span><br><span class="line">    // - 添加线</span><br><span class="line">    CGContextAddLineToPoint(cxt, 200, 50);</span><br><span class="line">    // - 第二根线</span><br><span class="line">    CGContextAddLineToPoint(cxt, 50, 200);</span><br><span class="line">    // - 第三根线</span><br><span class="line">    // CGContextAddLineToPoint(cxt, 50, 50);</span><br><span class="line">    // 关闭路径：将路径的 终点 和 起点 进行连线！</span><br><span class="line">    CGContextClosePath(cxt);</span><br><span class="line">    </span><br><span class="line">    // 3.渲染</span><br><span class="line">    CGContextFillPath(cxt);// fill -&gt; 负责填充</span><br><span class="line">    CGContextStrokePath(cxt);//stroke -&gt; 只负责画线    </span><br><span class="line">   </span><br><span class="line">绘制矩形</span><br><span class="line">	// 1.图形上下文</span><br><span class="line">    CGContextRef cxt = UIGraphicsGetCurrentContext();</span><br><span class="line">    // 2.路径</span><br><span class="line">    CGContextAddRect(cxt, CGRectMake(50, 50, 200, 100));</span><br><span class="line">    // 3.渲染</span><br><span class="line">    CGContextStrokePath(cxt);</span><br><span class="line">    </span><br><span class="line">绘制圆形</span><br><span class="line">	// 1.上下文</span><br><span class="line">    CGContextRef cxt = UIGraphicsGetCurrentContext();</span><br><span class="line">    // 2.圆形</span><br><span class="line">    // 绘制一个内切与矩形区域的圆形</span><br><span class="line">    // - 如果矩形恰好宽高相等，则绘制出来为圆形</span><br><span class="line">    // - 如果矩形宽高不相等，则绘制出来的时椭圆</span><br><span class="line">    CGContextAddEllipseInRect(cxt, CGRectMake(50, 50, 200, 100));</span><br><span class="line">    </span><br><span class="line">    // 直接绘制圆形的方式</span><br><span class="line">     x,y -&gt;     确定圆心的位置</span><br><span class="line">     radius -&gt;  半径</span><br><span class="line">     startA -&gt;  起始角度</span><br><span class="line">     endA -&gt;    结束角度</span><br><span class="line">     clockwise -&gt; 绘制方向 1 顺时针 0 逆时针</span><br><span class="line">    CGContextAddArc(cxt, 150, 150, 75, 0, M_PI, 0);</span><br><span class="line">    </span><br><span class="line">    // 3.渲染</span><br><span class="line">    CGContextStrokePath(cxt);        </span><br><span class="line"></span><br><span class="line">绘制一组点组成的图案 &lt;五角星&gt;</span><br><span class="line">	CGContextRef cxt = UIGraphicsGetCurrentContext(); </span><br><span class="line"> 	</span><br><span class="line"> 	CGPoint points[] = &#123;</span><br><span class="line">        CGPointMake(158, 50),</span><br><span class="line">        CGPointMake(191.37, 117.15),</span><br><span class="line">        CGPointMake(266, 127.92),</span><br><span class="line">        CGPointMake(212, 180.19),</span><br><span class="line">        CGPointMake(224.75, 254),</span><br><span class="line">        CGPointMake(158, 219.15),</span><br><span class="line">        CGPointMake(91.25,254),</span><br><span class="line">        CGPointMake(104,180.19),</span><br><span class="line">        CGPointMake(50, 127.92),</span><br><span class="line">        CGPointMake(124.63, 117.15),</span><br><span class="line">        CGPointMake(158, 50)</span><br><span class="line">    &#125;;</span><br><span class="line"> 	</span><br><span class="line"> 	CGContextAddLines(cxt, points, 数组元素个数);</span><br><span class="line"> 	CGContextStrokePath(cxt);</span><br><span class="line"> 	</span><br><span class="line">线条属性</span><br><span class="line">	// 线宽</span><br><span class="line">    // 从中间计算向两边分开</span><br><span class="line">    CGContextSetLineWidth(cxt, 20);</span><br><span class="line">    // 线头样式</span><br><span class="line">    kCGLineCapButt, 默认的样式!比较难看!</span><br><span class="line">     kCGLineCapRound,圆角!</span><br><span class="line">     kCGLineCapSquare平角!</span><br><span class="line">    CGContextSetLineCap(cxt, kCGLineCapRound);</span><br><span class="line">    // 接头样式</span><br><span class="line">    kCGLineJoinMiter 尖角!</span><br><span class="line">     kCGLineJoinRound,圆角!</span><br><span class="line">     kCGLineJoinBevel 倒角!</span><br><span class="line">    CGContextSetLineJoin(cxt, kCGLineJoinRound);</span><br><span class="line">    // 颜色</span><br><span class="line">    [[UIColor whiteColor] setStroke];    </span><br><span class="line"></span><br><span class="line">条形码</span><br><span class="line">	// 1. 上下文</span><br><span class="line">    CGContextRef cxt = UIGraphicsGetCurrentContext();</span><br><span class="line">    // 2. 路径</span><br><span class="line">    CGContextMoveToPoint(cxt, 0, 100);</span><br><span class="line">    CGContextAddLineToPoint(cxt, 300, 100);</span><br><span class="line">    CGContextSetLineWidth(cxt, 100);</span><br><span class="line">    // 虚线</span><br><span class="line">    /**</span><br><span class="line">     phase： 阶段，可以写0</span><br><span class="line">     lengths 数组</span><br><span class="line">     count   数组内元素的数量</span><br><span class="line">     */</span><br><span class="line">    CGFloat lengths[] = &#123;3,1,4,1,5,9,2,6,5,3,5,4,5,8,5,9,9,7,1,10&#125;;//一个线的颜色,一个填充颜色.交替</span><br><span class="line">    CGContextSetLineDash(cxt, 0, lengths, (sizeof(lengths) / sizeof(CGFloat)));//C语言求数组的长度</span><br><span class="line">    // 3. 渲染</span><br><span class="line">    CGContextStrokePath(cxt);</span><br></pre></td></tr></table></figure>
+<h3 id="使用Quartz2D内存管理问题"><a href="#使用Quartz2D内存管理问题" class="headerlink" title="使用Quartz2D内存管理问题"></a>使用Quartz2D内存管理问题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">内存管理问题</span><br><span class="line">在C语言函数中,遇到了create或copy或retain!这些关键单词创建的对象,最后结束的时候,需要自己release!</span><br><span class="line">ARC -&gt; 自动内存管理针对的是oc!  </span><br><span class="line"></span><br><span class="line">获取图形上下文</span><br><span class="line">    CGContextRef cxt = UIGraphicsGetCurrentContext();</span><br><span class="line">创建路径!</span><br><span class="line">    CGMutablePathRef path = CGPathCreateMutable();    </span><br><span class="line">	CGPathMoveToPoint(path, NULL, 50, 50);</span><br><span class="line">添加线!</span><br><span class="line">    CGPathAddLineToPoint(path, NULL, 250, 250);</span><br><span class="line">给上下文中添加一条路径 CGPathRef类型路径!</span><br><span class="line">    CGContextAddPath(cxt, path);</span><br><span class="line">渲染</span><br><span class="line">    CGContextStrokePath(cxt);</span><br><span class="line">释放路径资源</span><br><span class="line">    CGPathRelease(path);</span><br><span class="line">    </span><br><span class="line">释放对象的方式! CGPathRelease(对象)</span><br><span class="line">CFRelease(对象);//可以释放任何对象! 有时候也不给力!</span><br></pre></td></tr></table></figure>
+<h3 id="drawRect方法介绍"><a href="#drawRect方法介绍" class="headerlink" title="drawRect方法介绍"></a>drawRect方法介绍</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1 rect &amp; 图形上下文</span><br><span class="line">- 当前视图的bounds！</span><br><span class="line">- 图形上下文的本质：一套Quartz2D的绘图环境，可以实现不同图形的绘制！</span><br><span class="line"></span><br><span class="line">2 drawRect方法调用时机：</span><br><span class="line">   - 视图在第一次显示的时候会调用一次drawRect方法</span><br><span class="line">   - 系统内部自动执行的，不允许程序员手动直接调用，可以保证上下文的顺利获取!</span><br><span class="line"></span><br><span class="line">3 如果需要进行重新绘制图形如何实现？</span><br><span class="line">   - 可以通过setNeedsDisplayInRect：方法实现重绘【极少用】</span><br><span class="line">   - 可以通过setNeedsDisplay方法实现重绘【常用】</span><br><span class="line">   - 好处：间接实现重绘操作，系统内部帮我们执行drawRect方法，保证上下文的正常使用!</span><br></pre></td></tr></table></figure>
+<h3 id="UIKit绘图绘制文字"><a href="#UIKit绘图绘制文字" class="headerlink" title="UIKit绘图绘制文字"></a>UIKit绘图绘制文字</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">CoreGraphics核心绘图框架,进行图形绘制的!C语言形式的框架!</span><br><span class="line">UIKit框架里面的内容展示过程都是依靠核心绘图框架展示内容!两者的关系很紧密!</span><br><span class="line"></span><br><span class="line">- (void)drawRect:(CGRect)rect &#123;</span><br><span class="line">// 1.字符串</span><br><span class="line">   NSString *str = @&quot;Hello World&quot;;</span><br><span class="line">   // 2.绘制</span><br><span class="line">   NSDictionary *dict = @&#123;    // 设置字体的大小</span><br><span class="line">                          NSFontAttributeName : [UIFont systemFontOfSize:22],</span><br><span class="line">                              // 设置文字的颜色</span><br><span class="line">                          NSForegroundColorAttributeName : [UIColor magentaColor]&#125;;</span><br><span class="line">   	// 3 从某个点开始绘制</span><br><span class="line">	[str drawAtPoint:CGPointMake(0, 100) withAttributes:dict];</span><br><span class="line">   	// 在某个区域进行绘制</span><br><span class="line">	[str drawInRect:CGRectMake(0, 0, 200, 100) withAttributes:dict];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="UIKit绘制图片"><a href="#UIKit绘制图片" class="headerlink" title="UIKit绘制图片"></a>UIKit绘制图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- (void)drawRect:(CGRect)rect &#123;</span><br><span class="line">	// 1.图片</span><br><span class="line">    UIImage *img = [UIImage imageNamed:@&quot;me&quot;];</span><br><span class="line">    // 2.绘制图片</span><br><span class="line">    // 2.1 从某个点开始画图(大小不变)</span><br><span class="line">    [img drawAtPoint:CGPointMake(100, 100)];</span><br><span class="line">    // 2.2 在某个区域开始画图(大小会变)</span><br><span class="line">    [img drawInRect:CGRectMake(0, 0, 200, 200)];</span><br><span class="line">    // 2.3 以平铺的方式画图(大小不变)</span><br><span class="line">    [img drawAsPatternInRect:self.bounds];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="bezierpath路径绘图-lt-贝塞尔-gt"><a href="#bezierpath路径绘图-lt-贝塞尔-gt" class="headerlink" title="bezierpath路径绘图&lt;贝塞尔&gt;"></a>bezierpath路径绘图&lt;贝塞尔&gt;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">- (void)drawRect:(CGRect)rect &#123;</span><br><span class="line">	// 1.创建路径</span><br><span class="line">    UIBezierPath *path;</span><br><span class="line">    // 矩形</span><br><span class="line">    path = [UIBezierPath bezierPathWithRect:CGRectMake(50, 50, 200, 100)];    </span><br><span class="line">    // 圆角矩形</span><br><span class="line">    path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(50, 50, 200, 100) cornerRadius:20];    </span><br><span class="line">    // 椭圆</span><br><span class="line">    path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(50, 50, 200, 100)];    </span><br><span class="line">    // 弧形</span><br><span class="line">    // 参数 圆心 | 半径 | 起始角度 | 结束角度 | 是否为顺时针</span><br><span class="line">    path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(150, 150) radius:70 startAngle:0 endAngle:M_PI_4 clockwise:YES];    </span><br><span class="line">    // 2.渲染</span><br><span class="line">    [path stroke];   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="填充规则"><a href="#填充规则" class="headerlink" title="填充规则"></a>填充规则</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"> 填充规则</span><br><span class="line">	非零绕数填充原则 fill!  </span><br><span class="line">		a.视图中的一个点</span><br><span class="line">		- 如果被顺时针覆盖，记为1</span><br><span class="line">		- 如果被逆时针覆盖，记为-1</span><br><span class="line">		如果结果为0，则不渲染，否则渲	</span><br><span class="line">		这个规则与方向有关，与次数无关</span><br><span class="line">	CGContextDrawPath(cxtRef, kCGPathFill)</span><br><span class="line">			</span><br><span class="line">	奇偶填充原则 Eofill </span><br><span class="line">		a.视图中的一个点</span><br><span class="line">		- 如果被覆盖奇数次，渲染；</span><br><span class="line">		- 如果被覆盖偶数次，不渲染；</span><br><span class="line"></span><br><span class="line">	// 同时显示stroke和fill的颜色</span><br><span class="line">    CGContextDrawPath(cxtRef, kCGPathEOFill);</span><br><span class="line">		</span><br><span class="line">// 1.绘制圆环</span><br><span class="line">    // 获取上下文</span><br><span class="line">    CGContextRef cxtRef = UIGraphicsGetCurrentContext();</span><br><span class="line">    // 圆形1</span><br><span class="line">    CGPoint center = CGPointMake(150, 150);</span><br><span class="line">    CGFloat radius = 150;</span><br><span class="line">    // 逆时针!</span><br><span class="line">    CGContextAddArc(cxtRef, center.x, center.y, radius, 0, M_PI * 2, 1);</span><br><span class="line">    // 圆形2</span><br><span class="line">    // 顺时针</span><br><span class="line">    CGContextAddArc(cxtRef, center.x, center.y, radius - 20, 0, M_PI * 2, 0);</span><br><span class="line">    // 渲染! -&gt; 填充!</span><br><span class="line">    CGContextFillPath(cxtRef);</span><br></pre></td></tr></table></figure>
+<h3 id="drawRect方法介绍-1"><a href="#drawRect方法介绍-1" class="headerlink" title="drawRect方法介绍"></a>drawRect方法介绍</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1 rect &amp; 图形上下文</span><br><span class="line">- 当前视图的bounds！</span><br><span class="line">- 图形上下文的本质：一套Quartz2D的绘图环境，可以实现不同图形的绘制！</span><br><span class="line"></span><br><span class="line">2 drawRect方法调用时机：</span><br><span class="line">   - 视图在第一次显示的时候会调用一次drawRect方法</span><br><span class="line">   - 系统内部自动执行的，不允许程序员手动直接调用，可以保证上下文的顺利获取!</span><br><span class="line"></span><br><span class="line">3 如果需要进行重新绘制图形如何实现？</span><br><span class="line">   - 可以通过setNeedsDisplayInRect：方法实现重绘【极少用】</span><br><span class="line">   - 可以通过setNeedsDisplay方法实现重绘【常用】</span><br><span class="line">   - 好处：间接实现重绘操作，系统内部帮我们执行drawRect方法，保证上下文的正常使用!</span><br></pre></td></tr></table></figure>
+<h3 id="UIKit绘图绘制文字-1"><a href="#UIKit绘图绘制文字-1" class="headerlink" title="UIKit绘图绘制文字"></a>UIKit绘图绘制文字</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">CoreGraphics核心绘图框架,进行图形绘制的!C语言形式的框架!</span><br><span class="line">UIKit框架里面的内容展示过程都是依靠核心绘图框架展示内容!两者的关系很紧密!</span><br><span class="line"></span><br><span class="line">- (void)drawRect:(CGRect)rect &#123;</span><br><span class="line">// 1.字符串</span><br><span class="line">   NSString *str = @&quot;Hello World&quot;;</span><br><span class="line">   // 2.绘制</span><br><span class="line">   NSDictionary *dict = @&#123;    // 设置字体的大小</span><br><span class="line">                          NSFontAttributeName : [UIFont systemFontOfSize:22],</span><br><span class="line">                              // 设置文字的颜色</span><br><span class="line">                          NSForegroundColorAttributeName : [UIColor magentaColor]&#125;;</span><br><span class="line">   	// 3 从某个点开始绘制</span><br><span class="line">	[str drawAtPoint:CGPointMake(0, 100) withAttributes:dict];</span><br><span class="line">   	// 在某个区域进行绘制</span><br><span class="line">	[str drawInRect:CGRectMake(0, 0, 200, 100) withAttributes:dict];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="UIKit绘制图片-1"><a href="#UIKit绘制图片-1" class="headerlink" title="UIKit绘制图片"></a>UIKit绘制图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- (void)drawRect:(CGRect)rect &#123;</span><br><span class="line">	// 1.图片</span><br><span class="line">    UIImage *img = [UIImage imageNamed:@&quot;me&quot;];</span><br><span class="line">    // 2.绘制图片</span><br><span class="line">    // 2.1 从某个点开始画图(大小不变)</span><br><span class="line">    [img drawAtPoint:CGPointMake(100, 100)];</span><br><span class="line">    // 2.2 在某个区域开始画图(大小会变)</span><br><span class="line">    [img drawInRect:CGRectMake(0, 0, 200, 200)];</span><br><span class="line">    // 2.3 以平铺的方式画图(大小不变)</span><br><span class="line">    [img drawAsPatternInRect:self.bounds];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="bezierpath路径绘图-lt-贝塞尔-gt-1"><a href="#bezierpath路径绘图-lt-贝塞尔-gt-1" class="headerlink" title="bezierpath路径绘图&lt;贝塞尔&gt;"></a>bezierpath路径绘图&lt;贝塞尔&gt;</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">- (void)drawRect:(CGRect)rect &#123;</span><br><span class="line">	// 1.创建路径</span><br><span class="line">    UIBezierPath *path;</span><br><span class="line">    // 矩形</span><br><span class="line">    path = [UIBezierPath bezierPathWithRect:CGRectMake(50, 50, 200, 100)];    </span><br><span class="line">    // 圆角矩形</span><br><span class="line">    path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(50, 50, 200, 100) cornerRadius:20];    </span><br><span class="line">    // 椭圆</span><br><span class="line">    path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(50, 50, 200, 100)];    </span><br><span class="line">    // 弧形</span><br><span class="line">    // 参数 圆心 | 半径 | 起始角度 | 结束角度 | 是否为顺时针</span><br><span class="line">    path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(150, 150) radius:70 startAngle:0 endAngle:M_PI_4 clockwise:YES];    </span><br><span class="line">    // 2.渲染</span><br><span class="line">    [path stroke];   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="静态分析"><a href="#静态分析" class="headerlink" title="静态分析"></a>静态分析</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">// 执行静态代码分析</span><br><span class="line"></span><br><span class="line">// 查找缺陷-潜在的bug-在项目的源代码中使用Xcode内置的静态分析工具。</span><br><span class="line">// 源代码可能会存在一些很难被发现和修复的细微的错误，只有在运行的时候才能够被发现。</span><br><span class="line"></span><br><span class="line">步骤：</span><br><span class="line">// 1.选择 product -&gt; Analyze</span><br><span class="line">// 2.在问题的导航器上，选择静态分析工具的信息。</span><br><span class="line">// 3.在源代码编辑器上，点击相应的信息</span><br><span class="line">// 4.在位置编辑区域顶部的菜单中查看错误的错误原因。</span><br><span class="line">// 5.编辑代码修复缺陷。</span><br><span class="line"></span><br><span class="line">// Xcode静态分析工具能够分析项目的源代码并且确定以下类型的问题：</span><br><span class="line">// 1&gt; 逻辑缺陷，如访问没有初始化的变量和非关联化的空指针</span><br><span class="line">// 2&gt; 内存管理缺陷，例如内存泄露问题</span><br><span class="line">// 3&gt; 没有任何用处变量缺陷</span><br><span class="line">// 4&gt; API使用缺陷，由于在项目中使用的框架或库没有遵守相关的要求而导致的错误</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 你可以使用断言，属性，或编译指令抑制分析工具中报出的假消息。</span><br><span class="line"></span><br><span class="line">// 当第一次分析一个项目的时候，可能会发现很多问题。但是如果在开发中经常的进行静态分析并且及时修复发现的问题，在以后的分析中问题就会越来越少。</span><br><span class="line">// 早发现，早治疗。对代码也是好的！</span><br><span class="line"></span><br><span class="line">// 注意：如果静态分析工具没有报告任何问题，你不能假定认为就没有问题了。这个工具不能保证说任何在源代码中的问题都能够被准确发现。</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/10/iOS无规律总结[UI进阶篇一]/" rel="next" title="iOS无规律总结[UI进阶篇一]">
+                <i class="fa fa-chevron-left"></i> iOS无规律总结[UI进阶篇一]
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/20/iOS无规律总结[UI进阶篇三]/" rel="prev" title="iOS无规律总结[UI进阶篇三]">
+                iOS无规律总结[UI进阶篇三] <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/icon.png"
+                alt="Lin Wang" />
+            
+              <p class="site-author-name" itemprop="name">Lin Wang</p>
+              <p class="site-description motion-element" itemprop="description">任何事情不会怕慢，怕的是踌躇不前。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#应用的bundle-包"><span class="nav-number">1.</span> <span class="nav-text">应用的bundle[包]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#沙盒"><span class="nav-number">2.</span> <span class="nav-text">沙盒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取documents路径-文档目录"><span class="nav-number">3.</span> <span class="nav-text">获取documents路径 文档目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取缓存路径"><span class="nav-number">4.</span> <span class="nav-text">获取缓存路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取tmp路径-临时文件目录"><span class="nav-number">5.</span> <span class="nav-text">获取tmp路径 临时文件目录!</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#plist"><span class="nav-number">6.</span> <span class="nav-text">plist</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NSString"><span class="nav-number">7.</span> <span class="nav-text">NSString</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NSURL"><span class="nav-number">8.</span> <span class="nav-text">NSURL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NSUserDefaults-单例-偏好设置-gt-负责偏好设置存储及读取操作"><span class="nav-number">9.</span> <span class="nav-text">NSUserDefaults 单例 偏好设置 -&gt; 负责偏好设置存储及读取操作!</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据存储-归档-amp-解档"><span class="nav-number">10.</span> <span class="nav-text">数据存储[归档&amp;解档]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iOS中的三大事件"><span class="nav-number">11.</span> <span class="nav-text">iOS中的三大事件!</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#响应者"><span class="nav-number">12.</span> <span class="nav-text">响应者</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NSSet"><span class="nav-number">13.</span> <span class="nav-text">NSSet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手势触摸Touche"><span class="nav-number">14.</span> <span class="nav-text">手势触摸Touche</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#坐标转换"><span class="nav-number">15.</span> <span class="nav-text">坐标转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控件不接受用户交互的情况"><span class="nav-number">16.</span> <span class="nav-text">控件不接受用户交互的情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手势识别"><span class="nav-number">17.</span> <span class="nav-text">手势识别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件的产生和传递"><span class="nav-number">18.</span> <span class="nav-text">事件的产生和传递</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIContainerView"><span class="nav-number">19.</span> <span class="nav-text">UIContainerView</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#父控制器添加子控制器"><span class="nav-number">20.</span> <span class="nav-text">父控制器添加子控制器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本图形绘制-Quartz2D绘图"><span class="nav-number">21.</span> <span class="nav-text">基本图形绘制-Quartz2D绘图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用Quartz2D内存管理问题"><span class="nav-number">22.</span> <span class="nav-text">使用Quartz2D内存管理问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#drawRect方法介绍"><span class="nav-number">23.</span> <span class="nav-text">drawRect方法介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIKit绘图绘制文字"><span class="nav-number">24.</span> <span class="nav-text">UIKit绘图绘制文字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIKit绘制图片"><span class="nav-number">25.</span> <span class="nav-text">UIKit绘制图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bezierpath路径绘图-lt-贝塞尔-gt"><span class="nav-number">26.</span> <span class="nav-text">bezierpath路径绘图&lt;贝塞尔&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#填充规则"><span class="nav-number">27.</span> <span class="nav-text">填充规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#drawRect方法介绍-1"><span class="nav-number">28.</span> <span class="nav-text">drawRect方法介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIKit绘图绘制文字-1"><span class="nav-number">29.</span> <span class="nav-text">UIKit绘图绘制文字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIKit绘制图片-1"><span class="nav-number">30.</span> <span class="nav-text">UIKit绘制图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bezierpath路径绘图-lt-贝塞尔-gt-1"><span class="nav-number">31.</span> <span class="nav-text">bezierpath路径绘图&lt;贝塞尔&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态分析"><span class="nav-number">32.</span> <span class="nav-text">静态分析</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lin Wang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">HuangLinWang</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
